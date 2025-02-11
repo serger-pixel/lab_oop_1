@@ -16,17 +16,18 @@ namespace lab_oop_1
         public const String KeyfamilySharing = "familySharing";
         public const String KeyRoutArend = "routArend";
         public const String KeyAll = "All";
+
+        public const String NAME = "Default";
+        public const decimal PRICE = 100;
+        public const int CNTUSERS = 0;
+        public const int SPEED = 128;
+        public const bool SUPPORT5G = false;
+        public const bool FAMILYSHARING = false;
+        public const bool routArend = false;
     }
 
     internal class InternetOperator
     {
-        private static String NAME = "Default";
-        private static decimal PRICE = 100;
-        private static int CNTUSERS = 0;
-        private static int SPEED = 128;
-        private static bool SUPPORT5G = false;
-        private static bool FAMILYSHARING = false;
-        private static bool routArend = false;
 
         private String _nameOperator;
         private decimal _priceOfMonth;
@@ -52,40 +53,40 @@ namespace lab_oop_1
         public InternetOperator(String nameOperator, decimal priceOfMonth,
             int cntUsers, int speedMb, bool Support5g, bool familySharing): 
             this(nameOperator, priceOfMonth, cntUsers,
-                speedMb, Support5g, familySharing, routArend)
+                speedMb, Support5g, familySharing, IntOperConsts.routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
             int cntUsers, int speedMb, bool Support5g): 
             this(nameOperator, priceOfMonth, cntUsers, 
-                speedMb, Support5g, FAMILYSHARING, routArend)
+                speedMb, Support5g, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
             int cntUsers, int speedMb) :
             this(nameOperator, priceOfMonth, cntUsers,
-                speedMb, SUPPORT5G, FAMILYSHARING, routArend)
+                speedMb, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
             int cntUsers) :
             this(nameOperator, priceOfMonth, cntUsers,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+                IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth) :
-            this(nameOperator, priceOfMonth, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+            this(nameOperator, priceOfMonth, IntOperConsts.CNTUSERS,
+                IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public InternetOperator(String nameOperator) :
-            this(nameOperator, PRICE, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+            this(nameOperator, IntOperConsts.PRICE, IntOperConsts.CNTUSERS,
+                IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public InternetOperator() :
-            this(NAME, PRICE, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+            this(IntOperConsts.NAME, IntOperConsts.PRICE, IntOperConsts.CNTUSERS,
+                IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, IntOperConsts.routArend)
         { }
 
         public String ToString()

@@ -30,6 +30,16 @@ namespace lab_oop_1
             comboBox7.DataSource = new List<String>() { FormsConstans.TRUEKEY, FormsConstans.FALSEKEY };
             comboBox7.SelectedIndex = -1;
 
+
+            comboBox10.DataSource = new List<String>() { FormsConstans.TRUEKEY, FormsConstans.FALSEKEY };
+            comboBox10.SelectedIndex = -1;
+
+            comboBox4.DataSource = new List<String>() { FormsConstans.TRUEKEY, FormsConstans.FALSEKEY };
+            comboBox4.SelectedIndex = -1;
+
+            comboBox9.DataSource = new List<String>() { FormsConstans.TRUEKEY, FormsConstans.FALSEKEY };
+            comboBox9.SelectedIndex = -1;
+
             comboBox3.DataSource = new List<int>()
             {
                 FormsConstans.VALUE0,
@@ -42,8 +52,17 @@ namespace lab_oop_1
                 FormsConstans.VALUE7,
 
             };
-         
 
+            comboBox1.DataSource = new List<String>()
+            {
+                IntOperConsts.KeyNameOperator,
+                IntOperConsts.KeyPriceOfMonth,
+                IntOperConsts.KeycntUsers,
+                IntOperConsts.KeySpeedMb,
+                IntOperConsts.KeySupport5g,
+                IntOperConsts.KeyfamilySharing,
+                IntOperConsts.KeyRoutArend
+            };
 
             _localList = new InternerOperatorList();
 
@@ -330,9 +349,9 @@ namespace lab_oop_1
                 textBox5.Text = localOperator.getPriceOfMonth().ToString();
                 numericUpDown3.Value = localOperator.getCntUsers();
                 numericUpDown4.Value = localOperator.getSpeedMb();
-                comboBox8.SelectedItem = localOperator.getSupport5g().ToString();
-                comboBox6.SelectedItem = localOperator.getFamilySharing().ToString();
-                comboBox7.SelectedItem = localOperator.getRoutArend().ToString();
+                comboBox8.Text = localOperator.getSupport5g().ToString();
+                comboBox6.Text = localOperator.getFamilySharing().ToString();
+                comboBox7.Text = localOperator.getRoutArend().ToString();
             }
  
         }

@@ -352,7 +352,6 @@
             // 
             comboBox10.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox10.FormattingEnabled = true;
-            comboBox10.Items.AddRange(new object[] { "true", "false" });
             comboBox10.Location = new Point(20, 5);
             comboBox10.Margin = new Padding(4, 5, 4, 5);
             comboBox10.Name = "comboBox10";
@@ -385,7 +384,6 @@
             // 
             comboBox9.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox9.FormattingEnabled = true;
-            comboBox9.Items.AddRange(new object[] { "true", "false" });
             comboBox9.Location = new Point(24, 13);
             comboBox9.Margin = new Padding(4, 5, 4, 5);
             comboBox9.Name = "comboBox9";
@@ -449,7 +447,6 @@
             // 
             comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox4.FormattingEnabled = true;
-            comboBox4.Items.AddRange(new object[] { "true", "false" });
             comboBox4.Location = new Point(20, 13);
             comboBox4.Margin = new Padding(4, 5, 4, 5);
             comboBox4.Name = "comboBox4";

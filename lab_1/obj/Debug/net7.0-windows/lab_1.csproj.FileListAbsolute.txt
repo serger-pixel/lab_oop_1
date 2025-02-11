@@ -14,3 +14,4 @@ D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\refint\lab_1.dll
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.pdb
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.genruntimeconfig.cache
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\ref\lab_1.dll
+D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.sourcelink.json
