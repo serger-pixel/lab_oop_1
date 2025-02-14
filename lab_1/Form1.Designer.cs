@@ -1,4 +1,4 @@
-﻿namespace lab_oop_1
+﻿namespace lab_1
 {
     partial class Form1: Form
     {
@@ -144,7 +144,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(11, 988);
+            label3.Location = new Point(22, 858);
             label3.Name = "label3";
             label3.Size = new Size(153, 25);
             label3.TabIndex = 4;
@@ -152,8 +152,9 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(11, 1032);
+            textBox1.Location = new Point(22, 902);
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 3;
             // 
@@ -226,7 +227,6 @@
             label6.Size = new Size(237, 25);
             label6.TabIndex = 9;
             label6.Text = "Отображение информации";
-            label6.Click += label6_Click;
             // 
             // panel2
             // 
@@ -262,6 +262,7 @@
             // 
             numericUpDown2.Location = new Point(20, 13);
             numericUpDown2.Margin = new Padding(4, 5, 4, 5);
+            numericUpDown2.Maximum = new decimal(new int[] { 6144, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(171, 31);
             numericUpDown2.TabIndex = 4;
@@ -296,7 +297,6 @@
             textBox4.Size = new Size(141, 31);
             textBox4.TabIndex = 5;
             textBox4.Visible = false;
-            textBox4.TextChanged += textBox2_TextChanged;
             // 
             // label19
             // 
@@ -420,7 +420,6 @@
             textBox2.Size = new Size(141, 31);
             textBox2.TabIndex = 5;
             textBox2.Visible = false;
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // label9
             // 
@@ -482,7 +481,6 @@
             label8.Size = new Size(296, 25);
             label8.TabIndex = 0;
             label8.Text = "Кол-во параметров конструктора:";
-            label8.Click += label7_Click;
             // 
             // label7
             // 
@@ -492,7 +490,6 @@
             label7.Size = new Size(161, 25);
             label7.TabIndex = 0;
             label7.Text = "Создание объекта";
-            label7.Click += label7_Click;
             // 
             // comboBox3
             // 
@@ -537,6 +534,7 @@
             // 
             numericUpDown4.Location = new Point(20, 13);
             numericUpDown4.Margin = new Padding(4, 5, 4, 5);
+            numericUpDown4.Maximum = new decimal(new int[] { 6144, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(171, 31);
             numericUpDown4.TabIndex = 4;
@@ -568,7 +566,6 @@
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(141, 31);
             textBox5.TabIndex = 5;
-            textBox5.TextChanged += textBox2_TextChanged;
             // 
             // label23
             // 
@@ -625,7 +622,6 @@
             label10.Size = new Size(217, 25);
             label10.TabIndex = 0;
             label10.Text = "Редактирование объекта";
-            label10.Click += label7_Click;
             // 
             // panel7
             // 
@@ -725,7 +721,6 @@
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(141, 31);
             textBox3.TabIndex = 5;
-            textBox3.TextChanged += textBox2_TextChanged;
             // 
             // label17
             // 
@@ -771,7 +766,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1430, 915);
+            ClientSize = new Size(1430, 1079);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);

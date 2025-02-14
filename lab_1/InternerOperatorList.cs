@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab_oop_1
+namespace lab_1
 {
-    internal class InternerOperatorList
+    public class InternerOperatorList
     {
         private List<InternetOperator> _localList;
 

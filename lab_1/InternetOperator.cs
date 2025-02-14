@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab_oop_1
+namespace lab_1
 {
-    internal static class IntOperConsts
+    public static class IntOperConsts
     {
         public const String KeyNameOperator = "nameOperator";
         public const String KeyPriceOfMonth = "priceOfMonth";
@@ -19,14 +19,14 @@ namespace lab_oop_1
 
         public const String NAME = "Default";
         public const decimal PRICE = 100;
-        public const int CNTUSERS = 0;
+        public const int CNTUSERS = 1;
         public const int SPEED = 128;
         public const bool SUPPORT5G = false;
         public const bool FAMILYSHARING = false;
         public const bool routArend = false;
     }
 
-    internal class InternetOperator
+    public class InternetOperator
     {
 
         private String _nameOperator;
@@ -36,6 +36,8 @@ namespace lab_oop_1
         private bool _Support5g;
         private bool _familySharing;
         private bool _routArend;
+
+        public static int cntObj = 0;
 
         public InternetOperator(String nameOperator, decimal priceOfMonth, 
             int cntUsers, int speedMb, bool Support5g, 
@@ -48,6 +50,7 @@ namespace lab_oop_1
             _Support5g = Support5g;
             _familySharing = familySharing;
             _routArend = routArend;
+            cntObj++;
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,

@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 
-namespace lab_oop_1
+namespace lab_1
 {
     public partial class Form1 : Form
     {
@@ -89,7 +89,8 @@ namespace lab_oop_1
 
         private void checkValues(int cntParams) 
         {
-            if (cntParams == FormsConstans.VALUE0) { return; }
+            if (comboBox3.SelectedItem.ToString().Equals(FormsConstans.VALUE0.ToString() ) &&
+                _localList.find(IntOperConsts.NAME)) { throw new ObjectExists(); }
             if (_localList.find(textBox2.Text)) { throw new ObjectExists(); }
             if (cntParams >= FormsConstans.VALUE1) 
             {
@@ -180,19 +181,6 @@ namespace lab_oop_1
                     return null;
             }
         }
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -275,6 +263,7 @@ namespace lab_oop_1
                 _localList.add(localOperator);
                 comboBox2.Items.Add(localOperator.getNameOperator());
                 comboBox5.Items.Add(localOperator.getNameOperator());
+                textBox1.Text = InternetOperator.cntObj.ToString();
             }
             catch (Exception ex)
             {
@@ -304,7 +293,7 @@ namespace lab_oop_1
                         break;
 
                     case IntOperConsts.KeySpeedMb:
-                        richTextBox1.Text = localOperator.getSpeedMb().ToString();
+                        richTextBox1.Text = localOperator.getSpeedMb().ToString("X");
                         break;
 
                     case IntOperConsts.KeySupport5g:
@@ -332,11 +321,6 @@ namespace lab_oop_1
             {
                 MessageBox(this.Handle, ex.Message, "Ошибка", 0);
             }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)

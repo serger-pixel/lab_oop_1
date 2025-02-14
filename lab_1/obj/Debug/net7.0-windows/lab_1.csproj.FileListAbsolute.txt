@@ -3,7 +3,6 @@ D:\univer\oop\labs\lab_1\lab_1\bin\Debug\net7.0-windows\lab_1.deps.json
 D:\univer\oop\labs\lab_1\lab_1\bin\Debug\net7.0-windows\lab_1.runtimeconfig.json
 D:\univer\oop\labs\lab_1\lab_1\bin\Debug\net7.0-windows\lab_1.dll
 D:\univer\oop\labs\lab_1\lab_1\bin\Debug\net7.0-windows\lab_1.pdb
-D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_oop_1.Form1.resources
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.csproj.GenerateResource.cache
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.GeneratedMSBuildEditorConfig.editorconfig
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.AssemblyInfoInputs.cache
@@ -15,3 +14,4 @@ D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.pdb
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.genruntimeconfig.cache
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\ref\lab_1.dll
 D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.sourcelink.json
+D:\univer\oop\labs\lab_1\lab_1\obj\Debug\net7.0-windows\lab_1.Form1.resources

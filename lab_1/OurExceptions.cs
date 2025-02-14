@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace lab_oop_1
+namespace lab_1
 {
     public static class Regs 
     {

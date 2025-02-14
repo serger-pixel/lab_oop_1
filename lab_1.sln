@@ -5,7 +5,7 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab_1", "lab_1\lab_1.csproj", "{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInternetOperator", "TestInternetOperator\TestInternetOperator.csproj", "{932BFDD6-019E-4D57-964C-7684316227C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormTest", "FormTest\FormTest.csproj", "{BA37D061-4E78-4140-A162-917CC44C5D03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{932BFDD6-019E-4D57-964C-7684316227C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{932BFDD6-019E-4D57-964C-7684316227C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{932BFDD6-019E-4D57-964C-7684316227C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{932BFDD6-019E-4D57-964C-7684316227C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA37D061-4E78-4140-A162-917CC44C5D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA37D061-4E78-4140-A162-917CC44C5D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA37D061-4E78-4140-A162-917CC44C5D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA37D061-4E78-4140-A162-917CC44C5D03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
