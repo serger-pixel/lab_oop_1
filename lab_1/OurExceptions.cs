@@ -41,42 +41,42 @@ namespace lab_1
         public const String FILEDNOTCHOSEN = "Поле не выбрано";
     }
 
-    internal class NameException : Exception
+    public class NameException : Exception
     {
         public NameException() : base(ExceptionMessages.NAMEEXCEP) { }
     }
 
-    internal class PriceException : Exception
+    public class PriceException : Exception
     {
        public PriceException() : base(ExceptionMessages.PRICEEXCEP) { }
     }
 
-    internal class CntUsersException : Exception
+    public class CntUsersException : Exception
     {
         public CntUsersException() : base(ExceptionMessages.CNTUSERSEXCEP) { }
     }
 
-    internal class SpeedException : Exception
+    public class SpeedException : Exception
     {
         public SpeedException() : base(ExceptionMessages.SPEEDEXCEP) { }
     }
 
-    internal class CntZeroUsers : DivideByZeroException
+    public class CntZeroUsers : DivideByZeroException
     {
         public CntZeroUsers() : base(ExceptionMessages.DIVBYZEROEXCEP) { }
     }
 
-    internal class ObjectExists : Exception
+    public class ObjectExists : Exception
     {
         public ObjectExists() : base(ExceptionMessages.OBJECTEXISTS) { }
     }
 
-    internal class ObjWasntChosen : Exception 
+    public class ObjWasntChosen : Exception 
     {
         public ObjWasntChosen() : base(ExceptionMessages.OBJWASNTCHOSEN) { }
     }
 
-    internal class FieldNotChosen : Exception 
+    public class FieldNotChosen : Exception 
     {
         public FieldNotChosen() : base(ExceptionMessages.FILEDNOTCHOSEN) { }
     }
