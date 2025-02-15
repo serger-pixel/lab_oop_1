@@ -19,7 +19,7 @@ namespace FormTest
         public void getPriceTest()
         {
             decimal expected = 20.5m;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, expected);
             Assert.AreEqual(expected, local.getPriceOfMonth());
         }
 
@@ -27,7 +27,7 @@ namespace FormTest
         public void getCntUsersTest()
         {
             int expected = 50;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, IntOperConsts.PRICE, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, expected);
             Assert.AreEqual(expected, local.getCntUsers());
         }
 
@@ -35,7 +35,7 @@ namespace FormTest
         public void getSpeedMbTest()
         {
             int expected = 512;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, IntOperConsts.PRICE, IntOperConsts.CNTUSERS, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, expected);
             Assert.AreEqual(expected, local.getSpeedMb());
         }
 
@@ -43,7 +43,7 @@ namespace FormTest
         public void getSupport5gTest()
         {
             bool expected = true;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, IntOperConsts.PRICE, IntOperConsts.CNTUSERS, IntOperConsts.SPEED, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, expected);
             Assert.AreEqual(expected, local.getSupport5g());
         }
 
@@ -51,7 +51,7 @@ namespace FormTest
         public void getFamilySharingTest()
         {
             bool expected = true;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, IntOperConsts.PRICE, IntOperConsts.CNTUSERS, IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, InternetOperator.SUPPORT5G, expected);
             Assert.AreEqual(expected, local.getFamilySharing());
         }
 
@@ -59,7 +59,7 @@ namespace FormTest
         public void getRoutArendTest()
         {
             bool expected = true;
-            InternetOperator local = new InternetOperator(IntOperConsts.NAME, IntOperConsts.PRICE, IntOperConsts.CNTUSERS, IntOperConsts.SPEED, IntOperConsts.SUPPORT5G, IntOperConsts.FAMILYSHARING, expected);
+            InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, InternetOperator.SUPPORT5G, InternetOperator.FAMILYSHARING, expected);
             Assert.AreEqual(expected, local.getRoutArend());
         }
     }

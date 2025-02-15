@@ -90,7 +90,7 @@ namespace lab_1
         private void checkValues(int cntParams) 
         {
             if (comboBox3.SelectedItem.ToString().Equals(FormsConstans.VALUE0.ToString() ) &&
-                _localList.find(IntOperConsts.NAME)) { throw new ObjectExists(); }
+                _localList.find(InternetOperator.NAME)) { throw new ObjectExists(); }
             if (_localList.find(textBox2.Text)) { throw new ObjectExists(); }
             if (cntParams >= FormsConstans.VALUE1) 
             {

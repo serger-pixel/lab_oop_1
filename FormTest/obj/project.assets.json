@@ -2316,19 +2316,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ermak\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\univer\\oop\\labs\\lab_1\\FormTest\\FormTest.csproj",
+      "projectUniqueName": "E:\\C# labs\\lab_oop_1\\FormTest\\FormTest.csproj",
       "projectName": "FormTest",
-      "projectPath": "D:\\univer\\oop\\labs\\lab_1\\FormTest\\FormTest.csproj",
-      "packagesPath": "C:\\Users\\ermak\\.nuget\\packages\\",
-      "outputPath": "D:\\univer\\oop\\labs\\lab_1\\FormTest\\obj\\",
+      "projectPath": "E:\\C# labs\\lab_oop_1\\FormTest\\FormTest.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\C# labs\\lab_oop_1\\FormTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ermak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2342,8 +2342,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows7.0",
           "projectReferences": {
-            "D:\\univer\\oop\\labs\\lab_1\\lab_1\\lab_1.csproj": {
-              "projectPath": "D:\\univer\\oop\\labs\\lab_1\\lab_1\\lab_1.csproj"
+            "E:\\C# labs\\lab_oop_1\\lab_1\\lab_1.csproj": {
+              "projectPath": "E:\\C# labs\\lab_oop_1\\lab_1\\lab_1.csproj"
             }
           }
         }
@@ -2357,7 +2357,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -2396,7 +2397,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
