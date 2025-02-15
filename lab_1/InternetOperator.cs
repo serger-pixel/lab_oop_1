@@ -20,11 +20,18 @@ namespace lab_1
 
     public class InternetOperator
     {
+        public readonly static String NAME = "Default";
+        public readonly static decimal PRICE = 100;
+        public readonly static int CNTUSERS = 1;
+        public readonly static String SPEED = "0x80";
+        public readonly static bool SUPPORT5G = false;
+        public readonly static bool FAMILYSHARING = false;
+        public readonly static bool routArend = false;
 
         private String _nameOperator;
         private decimal _priceOfMonth;
         private int _cntUsers;
-        private int _speedMb;
+        private String _speedMb;
         private bool _Support5g;
         private bool _familySharing;
         private bool _routArend;
@@ -33,22 +40,13 @@ namespace lab_1
         public String NameOperator { get { return _nameOperator; } set { _nameOperator = value; } }
         public decimal PriceOfMonth { get { return _priceOfMonth; } set { _priceOfMonth = value; } }
         public int CntUsers { get { return _cntUsers; } set { _cntUsers = value; } }
-        public int SpeedMb { get { return _speedMb; } set { _speedMb = value; } }
+        public String SpeedMb { get { return _speedMb; } set { _speedMb = value; } }
         public bool Support5g { get { return _Support5g; } set { _Support5g = value; } }
         public bool FamilySharing { get { return _familySharing; } set { _familySharing = value; } }
         public bool RoutArend { get { return _routArend; } set { _routArend = value; } }
 
-
-        public readonly static String NAME = "Default";
-        public readonly static decimal PRICE = 100;
-        public readonly static int CNTUSERS = 1;
-        public readonly static int SPEED = 128;
-        public readonly static bool SUPPORT5G = false;
-        public readonly static bool FAMILYSHARING = false;
-        public readonly static bool routArend = false;
-
         public InternetOperator(String nameOperator, decimal priceOfMonth, 
-            int cntUsers, int speedMb, bool Support5g, 
+            int cntUsers, String speedMb, bool Support5g, 
             bool familySharing, bool routArend)
         {
             _nameOperator = nameOperator;
@@ -62,19 +60,19 @@ namespace lab_1
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, int speedMb, bool Support5g, bool familySharing): 
+            int cntUsers, String speedMb, bool Support5g, bool familySharing): 
             this(nameOperator, priceOfMonth, cntUsers,
                 speedMb, Support5g, familySharing, routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, int speedMb, bool Support5g): 
+            int cntUsers, String speedMb, bool Support5g): 
             this(nameOperator, priceOfMonth, cntUsers, 
                 speedMb, Support5g, FAMILYSHARING, routArend)
         { }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, int speedMb) :
+            int cntUsers, String speedMb) :
             this(nameOperator, priceOfMonth, cntUsers,
                 speedMb, SUPPORT5G, FAMILYSHARING, routArend)
         { }
@@ -100,7 +98,7 @@ namespace lab_1
                 SPEED, SUPPORT5G, FAMILYSHARING, routArend)
         { }
 
-        public String ToString()
+        public override String ToString()
         {
             return
                 "Имя: " + _nameOperator + "\n" +
@@ -111,63 +109,5 @@ namespace lab_1
                 "Поддержка семейного тарифа" + _familySharing + "\n" +
                 "Аренда роутера" + _routArend;
         }
-
-        public void setNameOperator(String nameOperator) {
-            _nameOperator = nameOperator;
-        }
-
-        public void setPriceOfMonth(decimal priceOfMonth) {
-            _priceOfMonth = priceOfMonth;
-        }
-
-        public void setCntUsers(int cntUsers) {
-            _cntUsers = cntUsers;
-        }
-
-        public void setSpeedMb(int speedMb) {
-            _speedMb = speedMb;
-        }
-
-        public void setSupport5g(bool support5g) {
-            _Support5g = support5g;
-        }
-
-        public void setFamilySharing(bool FamilySharing) {
-            _familySharing = FamilySharing;
-        }
-
-        public void setRoutArend(bool routArend) {
-            _routArend = routArend;
-        }
-
-        public String getNameOperator() {
-            return _nameOperator;
-        }
-
-        public decimal getPriceOfMonth() {
-            return _priceOfMonth;
-        }
-
-        public int getCntUsers() {
-            return _cntUsers;
-        }
-
-        public int getSpeedMb() {
-            return _speedMb;
-        }
-
-        public bool getSupport5g() {
-            return _Support5g;
-        }
-
-        public bool getFamilySharing() {
-            return _familySharing;
-        }
-
-        public bool getRoutArend() {
-            return _routArend;
-        }
-
-
     }
 }

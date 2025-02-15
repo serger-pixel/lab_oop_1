@@ -25,7 +25,7 @@ namespace lab_1
         {
             foreach(var i in _localList)
             {
-                if (i.getNameOperator().Equals(nameOperator))
+                if (i.NameOperator.Equals(nameOperator))
                 {
                     return true;
                 }
@@ -38,7 +38,7 @@ namespace lab_1
             InternetOperator localOperator = null;
             for (int i = 0; i < _localList.Count; i++)
             {
-                if (_localList[i].getNameOperator().Equals(nameOperator))
+                if (_localList[i].NameOperator.Equals(nameOperator))
                 {
                     localOperator = _localList[i];
                     break;

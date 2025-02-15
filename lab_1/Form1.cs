@@ -165,17 +165,17 @@ namespace lab_1
                         (int)numericUpDown1.Value);
                 case FormsConstans.VALUE4:
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, (int)numericUpDown2.Value);
+                        (int)numericUpDown1.Value, ((int)numericUpDown2.Value).ToString("X"));
                 case FormsConstans.VALUE5:
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, (int)numericUpDown2.Value, _boolDict[comboBox10.Text]);
+                        (int)numericUpDown1.Value, ((int)numericUpDown2.Value).ToString("X"), _boolDict[comboBox10.Text]);
                 case FormsConstans.VALUE6:
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, (int)numericUpDown2.Value, _boolDict[comboBox10.Text],
+                        (int)numericUpDown1.Value, ((int)numericUpDown2.Value).ToString("X"), _boolDict[comboBox10.Text],
                         _boolDict[comboBox4.Text]);
                 case FormsConstans.VALUE7:
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, (int)numericUpDown2.Value, _boolDict[comboBox10.Text],
+                        (int)numericUpDown1.Value, ((int)numericUpDown2.Value).ToString("X"), _boolDict[comboBox10.Text],
                         _boolDict[comboBox4.Text], _boolDict[comboBox9.Text]);
                 default:
                     return null;
@@ -240,13 +240,13 @@ namespace lab_1
                     throw new SpeedException();
                 }
 
-                localOperator.setNameOperator(textBox3.Text);
-                localOperator.setPriceOfMonth(decimal.Parse(textBox5.Text));
-                localOperator.setCntUsers((int)numericUpDown3.Value);
-                localOperator.setSpeedMb((int)numericUpDown4.Value);
-                localOperator.setSupport5g(_boolDict[comboBox8.Text]);
-                localOperator.setFamilySharing(_boolDict[comboBox6.Text]);
-                localOperator.setRoutArend(_boolDict[comboBox7.Text]);
+                localOperator.NameOperator = textBox3.Text;
+                localOperator.PriceOfMonth = decimal.Parse(textBox5.Text);
+                localOperator.CntUsers = (int)numericUpDown3.Value;
+                localOperator.SpeedMb = ((int)numericUpDown4.Value).ToString("X");
+                localOperator.Support5g = _boolDict[comboBox8.Text];
+                localOperator.FamilySharing = _boolDict[comboBox6.Text];
+                localOperator.RoutArend = _boolDict[comboBox7.Text];
 
             }
             catch (Exception ex)
@@ -261,8 +261,8 @@ namespace lab_1
             {
                 InternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
                 _localList.add(localOperator);
-                comboBox2.Items.Add(localOperator.getNameOperator());
-                comboBox5.Items.Add(localOperator.getNameOperator());
+                comboBox2.Items.Add(localOperator.NameOperator);
+                comboBox5.Items.Add(localOperator.NameOperator);
                 textBox1.Text = InternetOperator.cntObj.ToString();
             }
             catch (Exception ex)
@@ -271,51 +271,41 @@ namespace lab_1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) 
+        private void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 if (comboBox2.SelectedIndex == -1) { throw new ObjWasntChosen(); }
-
                 InternetOperator localOperator = _localList.getByName(comboBox2.SelectedItem.ToString());
-                switch (comboBox1.SelectedItem.ToString()) 
+                switch (comboBox1.SelectedItem.ToString())
                 {
                     case IntOperConsts.KeyNameOperator:
-                        richTextBox1.Text = localOperator.getNameOperator();
+                        richTextBox1.Text = localOperator.NameOperator;
                         break;
-
                     case IntOperConsts.KeyPriceOfMonth:
-                        richTextBox1.Text = localOperator.getPriceOfMonth().ToString();
+                        richTextBox1.Text = localOperator.PriceOfMonth.ToString();
                         break;
-
                     case IntOperConsts.KeycntUsers:
-                        richTextBox1.Text = localOperator.getCntUsers().ToString();
+                        richTextBox1.Text = localOperator.CntUsers.ToString();
                         break;
-
                     case IntOperConsts.KeySpeedMb:
-                        richTextBox1.Text = localOperator.getSpeedMb().ToString("X");
+                        richTextBox1.Text = localOperator.SpeedMb;
                         break;
-
                     case IntOperConsts.KeySupport5g:
-                        richTextBox1.Text = localOperator.getSupport5g().ToString();
+                        richTextBox1.Text = localOperator.Support5g.ToString();
                         break;
-
                     case IntOperConsts.KeyfamilySharing:
-                        richTextBox1.Text = localOperator.getFamilySharing().ToString();
+                        richTextBox1.Text = localOperator.FamilySharing.ToString();
                         break;
-
                     case IntOperConsts.KeyRoutArend:
-                        richTextBox1.Text = localOperator.getRoutArend().ToString();
+                        richTextBox1.Text = localOperator.RoutArend.ToString();
                         break;
-
                     case IntOperConsts.KeyAll:
                         richTextBox1.Text = localOperator.ToString();
                         break;
-
                     default:
                         break;
                 }
-
             }
             catch (ObjWasntChosen ex)
             {
@@ -327,17 +317,16 @@ namespace lab_1
         {
             if (comboBox5.SelectedIndex != -1)
             {
-
                 InternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
-                textBox3.Text = localOperator.getNameOperator();
-                textBox5.Text = localOperator.getPriceOfMonth().ToString();
-                numericUpDown3.Value = localOperator.getCntUsers();
-                numericUpDown4.Value = localOperator.getSpeedMb();
-                comboBox8.Text = localOperator.getSupport5g().ToString();
-                comboBox6.Text = localOperator.getFamilySharing().ToString();
-                comboBox7.Text = localOperator.getRoutArend().ToString();
+                textBox3.Text = localOperator.NameOperator; 
+                textBox5.Text = localOperator.PriceOfMonth.ToString(); 
+                numericUpDown3.Value = localOperator.CntUsers; 
+                numericUpDown4.Value = Convert.ToInt32(localOperator.SpeedMb, 16); 
+                comboBox8.Text = localOperator.Support5g.ToString(); 
+                comboBox6.Text = localOperator.FamilySharing.ToString();
+                comboBox7.Text = localOperator.RoutArend.ToString(); 
             }
- 
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
