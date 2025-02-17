@@ -28,34 +28,34 @@ namespace lab_1
         public readonly static bool FAMILYSHARING = false;
         public readonly static bool routArend = false;
 
-        private String _nameOperator;
-        private decimal _priceOfMonth;
-        private int _cntUsers;
-        private String _speedMb;
-        private bool _Support5g;
-        private bool _familySharing;
-        private bool _routArend;
+        //private String _nameOperator;
+        //private decimal _priceOfMonth;
+        //private int _cntUsers;
+        //private String _speedMb;
+        //private bool _Support5g;
+        //private bool _familySharing;
+        //private bool _routArend;
 
         public static int cntObj = 0;
-        public String NameOperator { get { return _nameOperator; } set { _nameOperator = value; } }
-        public decimal PriceOfMonth { get { return _priceOfMonth; } set { _priceOfMonth = value; } }
-        public int CntUsers { get { return _cntUsers; } set { _cntUsers = value; } }
-        public String SpeedMb { get { return _speedMb; } set { _speedMb = value; } }
-        public bool Support5g { get { return _Support5g; } set { _Support5g = value; } }
-        public bool FamilySharing { get { return _familySharing; } set { _familySharing = value; } }
-        public bool RoutArend { get { return _routArend; } set { _routArend = value; } }
+        public String NameOperator { get; set; }
+        public decimal PriceOfMonth { get; set; }
+        public int CntUsers { get; set; }
+        public String SpeedMb { get; set; }
+        public bool Support5g { get; set; }
+        public bool FamilySharing { get; set; }
+        public bool RoutArend { get;  set; }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth, 
-            int cntUsers, String speedMb, bool Support5g, 
+            int cntUsers, String speedMb, bool support5g, 
             bool familySharing, bool routArend)
         {
-            _nameOperator = nameOperator;
-            _priceOfMonth = priceOfMonth;
-            _cntUsers = cntUsers;
-            _speedMb = speedMb;
-            _Support5g = Support5g;
-            _familySharing = familySharing;
-            _routArend = routArend;
+            NameOperator = nameOperator;
+            PriceOfMonth = priceOfMonth;
+            CntUsers = cntUsers;
+            SpeedMb = speedMb;
+            Support5g = support5g;
+            FamilySharing = familySharing;
+            RoutArend = routArend;
             cntObj++;
         }
 
@@ -101,13 +101,13 @@ namespace lab_1
         public override String ToString()
         {
             return
-                "Имя: " + _nameOperator + "\n" +
-                "Цена: " + _priceOfMonth + "\n" +
-                "Кол-во пользовотелей: " + _cntUsers + "\n" +
-                "Скорость интернета: " + _speedMb + "\n" +
-                "Поддержка 5g" + _Support5g + "\n" +
-                "Поддержка семейного тарифа" + _familySharing + "\n" +
-                "Аренда роутера" + _routArend;
+                "Имя: " + NameOperator + "\n" +
+                "Цена: " + PriceOfMonth + "\n" +
+                "Кол-во пользовотелей: " + CntUsers + "\n" +
+                "Скорость интернета: " + SpeedMb + "\n" +
+                "Поддержка 5g" + Support5g + "\n" +
+                "Поддержка семейного тарифа" + FamilySharing + "\n" +
+                "Аренда роутера" + RoutArend;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace FormTest
         {
             String expected = "TestOperator";
             InternetOperator local = new InternetOperator(expected);
-            Assert.AreEqual(expected, local.getNameOperator());
+            Assert.AreEqual(expected, local.NameOperator);
         }
 
         [TestMethod]
@@ -20,7 +20,7 @@ namespace FormTest
         {
             decimal expected = 20.5m;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, expected);
-            Assert.AreEqual(expected, local.getPriceOfMonth());
+            Assert.AreEqual(expected, local.PriceOfMonth);
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace FormTest
         {
             int expected = 50;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, expected);
-            Assert.AreEqual(expected, local.getCntUsers());
+            Assert.AreEqual(expected, local.CntUsers);
         }
 
         [TestMethod]
@@ -36,7 +36,7 @@ namespace FormTest
         {
             int expected = 512;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, expected);
-            Assert.AreEqual(expected, local.getSpeedMb());
+            Assert.AreEqual(expected, local.SpeedMb);
         }
 
         [TestMethod]
@@ -44,7 +44,7 @@ namespace FormTest
         {
             bool expected = true;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, expected);
-            Assert.AreEqual(expected, local.getSupport5g());
+            Assert.AreEqual(expected, local.Support5g);
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace FormTest
         {
             bool expected = true;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, InternetOperator.SUPPORT5G, expected);
-            Assert.AreEqual(expected, local.getFamilySharing());
+            Assert.AreEqual(expected, local.FamilySharing);
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace FormTest
         {
             bool expected = true;
             InternetOperator local = new InternetOperator(InternetOperator.NAME, InternetOperator.PRICE, InternetOperator.CNTUSERS, InternetOperator.SPEED, InternetOperator.SUPPORT5G, InternetOperator.FAMILYSHARING, expected);
-            Assert.AreEqual(expected, local.getRoutArend());
+            Assert.AreEqual(expected, local.RoutArend);
         }
     }
 }
