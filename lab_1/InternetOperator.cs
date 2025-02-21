@@ -28,7 +28,7 @@ namespace lab_1
         public const String NAME = "Default";
         public const decimal PRICE = 100;
         public const int CNTUSERS = 1;
-        public const String SPEED = "0x80";
+        public const String SPEED = "0X80";
         public const bool SUPPORT5G = false;
         public const bool FAMILYSHARING = false;
         public const bool routArend = false;

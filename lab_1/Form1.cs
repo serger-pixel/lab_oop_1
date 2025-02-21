@@ -236,14 +236,24 @@ namespace lab_1
                     throw new SpeedException();
                 }
 
-                localOperator.NameOperator = textBox3.Text;
-                localOperator.PriceOfMonth = decimal.Parse(textBox5.Text);
-                localOperator.CntUsers = (int)numericUpDown3.Value;
-                localOperator.SpeedMb = ((int)numericUpDown4.Value).ToString("X");
-                localOperator.Support5g = _boolDict[comboBox8.Text];
-                localOperator.FamilySharing = _boolDict[comboBox6.Text];
-                localOperator.RoutArend = _boolDict[comboBox7.Text];
-                _editing?.Invoke(this.Handle, IntOperConsts.EDITING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
+                if (!localOperator.NameOperator.Equals(textBox3.Text) ||
+                    localOperator.PriceOfMonth != decimal.Parse(textBox5.Text) ||
+                    localOperator.CntUsers != (int)numericUpDown3.Value ||
+                    !localOperator.SpeedMb.Equals("0X" + ((int)numericUpDown4.Value).ToString("X")) ||
+                    localOperator.Support5g != _boolDict[comboBox8.Text] ||
+                    localOperator.FamilySharing != _boolDict[comboBox6.Text] ||
+                    localOperator.RoutArend != _boolDict[comboBox7.Text])
+                {
+                    localOperator.NameOperator = textBox3.Text;
+                    localOperator.PriceOfMonth = decimal.Parse(textBox5.Text);
+                    localOperator.CntUsers = (int)numericUpDown3.Value;
+                    localOperator.SpeedMb = ((int)numericUpDown4.Value).ToString("X");
+                    localOperator.Support5g = _boolDict[comboBox8.Text];
+                    localOperator.FamilySharing = _boolDict[comboBox6.Text];
+                    localOperator.RoutArend = _boolDict[comboBox7.Text];
+                    _editing?.Invoke(this.Handle, IntOperConsts.EDITING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
+                }
+               
 
             }
             catch (Exception ex)
