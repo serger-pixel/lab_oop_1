@@ -253,7 +253,7 @@ namespace lab_1
                     localOperator.RoutArend = _boolDict[comboBox7.Text];
                     _editing?.Invoke(this.Handle, IntOperConsts.EDITING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
                 }
-               
+
 
             }
             catch (Exception ex)
@@ -267,9 +267,18 @@ namespace lab_1
             try
             {
                 InternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
-                _localList.add(localOperator, this.Handle);
+                _localList.add(localOperator);
                 comboBox5.Items.Add(localOperator.NameOperator);
                 textBox1.Text = InternetOperator.cntObj.ToString();
+
+                textBox2.Clear();
+                textBox4.Clear();
+                numericUpDown1.Value = 0;
+                numericUpDown2.Value = 0;
+                comboBox10.SelectedIndex = -1;
+                comboBox4.SelectedIndex = -1;
+                comboBox9.SelectedIndex = -1;
+
                 _editing?.Invoke(this.Handle, IntOperConsts.ADDING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
             }
             catch (Exception ex)
@@ -300,6 +309,37 @@ namespace lab_1
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBox3.Text != "")
+                {
+                    _localList.del(textBox3.Text);
+                    InternetOperator.cntObj--;
+                    textBox1.Text = InternetOperator.cntObj.ToString();
+                    comboBox5.Items.Remove(textBox3.Text);
+                    String deletedName = textBox3.Text;
+                    textBox3.Clear();
+                    textBox5.Clear();
+                    numericUpDown3.Value = 0;
+                    numericUpDown4.Value = 0;
+                    comboBox8.SelectedIndex = -1;
+                    comboBox6.SelectedIndex = -1;
+                    comboBox7.SelectedIndex = -1;
+                    _editing?.Invoke(this.Handle, IntOperConsts.DELETING + deletedName, IntOperConsts.TITLE, 0);
+                }
+                else
+                {
+                    throw new ObjWasntChosen();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox(this.Handle, ex.Message, "Ошибка", 0);
+            }
+
+        }
     }
 
     public static class FormsConstans

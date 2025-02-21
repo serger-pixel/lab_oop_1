@@ -17,12 +17,12 @@ public class InternerOperatorList
             _localList = new List<InternetOperator>();
         }
 
-        public void add(InternetOperator internetOperator, IntPtr hWnd)
+        public void add(InternetOperator internetOperator)
         {
             _localList.Add(internetOperator);
         }
 
-        public void del(String nameOperator, IntPtr hWnd)
+        public void del(String nameOperator)
         {
             InternetOperator localInternetOperator = getByName(nameOperator);
             _localList.Remove(localInternetOperator);
