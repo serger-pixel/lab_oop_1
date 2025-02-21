@@ -16,25 +16,22 @@ namespace lab_1
         public const String KeyfamilySharing = "familySharing";
         public const String KeyRoutArend = "routArend";
         public const String KeyAll = "All";
+
+        public const string DELETING = "Удаление элемента: ";
+        public const string ADDING = "Добавление элемента: ";
+        public const string EDITING = "Изменение элемента: ";
+        public const string TITLE = "Изменение";
     }
 
     public class InternetOperator
     {
-        public readonly static String NAME = "Default";
-        public readonly static decimal PRICE = 100;
-        public readonly static int CNTUSERS = 1;
-        public readonly static String SPEED = "0x80";
-        public readonly static bool SUPPORT5G = false;
-        public readonly static bool FAMILYSHARING = false;
-        public readonly static bool routArend = false;
-
-        //private String _nameOperator;
-        //private decimal _priceOfMonth;
-        //private int _cntUsers;
-        //private String _speedMb;
-        //private bool _Support5g;
-        //private bool _familySharing;
-        //private bool _routArend;
+        public const String NAME = "Default";
+        public const decimal PRICE = 100;
+        public const int CNTUSERS = 1;
+        public const String SPEED = "0x80";
+        public const bool SUPPORT5G = false;
+        public const bool FAMILYSHARING = false;
+        public const bool routArend = false;
 
         public static int cntObj = 0;
         public String NameOperator { get; set; }

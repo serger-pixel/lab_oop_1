@@ -27,18 +27,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
-            richTextBox1 = new RichTextBox();
-            label4 = new Label();
-            button1 = new Button();
-            comboBox2 = new ComboBox();
-            label5 = new Label();
-            panel1 = new Panel();
-            label6 = new Label();
             panel2 = new Panel();
             speedPanel = new Panel();
             numericUpDown2 = new NumericUpDown();
@@ -91,7 +83,7 @@
             panel4 = new Panel();
             comboBox6 = new ComboBox();
             label12 = new Label();
-            panel1.SuspendLayout();
+            contextMenuStrip1 = new ContextMenuStrip(components);
             panel2.SuspendLayout();
             speedPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -123,28 +115,10 @@
             label1.TabIndex = 0;
             label1.Text = "Лабораторная работа № 1. Класс. Статические члены\r\nкласса. Обработка исключений\r\n10 вариант\r\nЕрмаков, Петровский\r\n";
             // 
-            // comboBox1
-            // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(54, 113);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(183, 33);
-            comboBox1.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(54, 68);
-            label2.Name = "label2";
-            label2.Size = new Size(111, 25);
-            label2.TabIndex = 2;
-            label2.Text = "Выбор поля";
-            // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(22, 858);
+            label3.Location = new Point(53, 40);
             label3.Name = "label3";
             label3.Size = new Size(153, 25);
             label3.TabIndex = 4;
@@ -152,81 +126,11 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(22, 902);
+            textBox1.Location = new Point(53, 84);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(150, 31);
             textBox1.TabIndex = 3;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(54, 257);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(374, 144);
-            richTextBox1.TabIndex = 5;
-            richTextBox1.Text = "";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(54, 213);
-            label4.Name = "label4";
-            label4.Size = new Size(110, 25);
-            label4.TabIndex = 6;
-            label4.Text = "Вывод поля";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(54, 167);
-            button1.Name = "button1";
-            button1.Size = new Size(133, 33);
-            button1.TabIndex = 7;
-            button1.Text = "Отобразить";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // comboBox2
-            // 
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(246, 113);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(183, 33);
-            comboBox2.TabIndex = 1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(246, 68);
-            label5.Name = "label5";
-            label5.Size = new Size(138, 25);
-            label5.TabIndex = 2;
-            label5.Text = "Выбор объекта";
-            // 
-            // panel1
-            // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(comboBox2);
-            panel1.Controls.Add(richTextBox1);
-            panel1.Controls.Add(label5);
-            panel1.Location = new Point(11, 165);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(487, 558);
-            panel1.TabIndex = 8;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(129, 10);
-            label6.Name = "label6";
-            label6.Size = new Size(237, 25);
-            label6.TabIndex = 9;
-            label6.Text = "Отображение информации";
             // 
             // panel2
             // 
@@ -242,9 +146,9 @@
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(comboBox3);
-            panel2.Location = new Point(539, 165);
+            panel2.Location = new Point(41, 178);
             panel2.Name = "panel2";
-            panel2.Size = new Size(447, 765);
+            panel2.Size = new Size(400, 765);
             panel2.TabIndex = 9;
             panel2.Paint += panel2_Paint;
             // 
@@ -465,7 +369,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(179, 702);
+            button2.Location = new Point(139, 702);
             button2.Name = "button2";
             button2.Size = new Size(111, 33);
             button2.TabIndex = 2;
@@ -515,9 +419,9 @@
             panel3.Controls.Add(label11);
             panel3.Controls.Add(panel5);
             panel3.Controls.Add(panel4);
-            panel3.Location = new Point(1021, 165);
+            panel3.Location = new Point(546, 178);
             panel3.Name = "panel3";
-            panel3.Size = new Size(380, 753);
+            panel3.Size = new Size(388, 765);
             panel3.TabIndex = 9;
             // 
             // panel10
@@ -762,21 +666,24 @@
             label12.TabIndex = 14;
             label12.Text = "Семейный доступ";
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.ImageScalingSize = new Size(24, 24);
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1430, 1079);
+            ClientSize = new Size(993, 1079);
             Controls.Add(panel3);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             Controls.Add(label3);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             speedPanel.ResumeLayout(false);
@@ -816,17 +723,8 @@
         #endregion
 
         private Label label1;
-        private ComboBox comboBox1;
-        private Label label2;
         private Label label3;
         private TextBox textBox1;
-        private RichTextBox richTextBox1;
-        private Label label4;
-        private Button button1;
-        private ComboBox comboBox2;
-        private Label label5;
-        private Panel panel1;
-        private Label label6;
         private Panel panel2;
         private Label label7;
         private Button button2;
@@ -880,5 +778,6 @@
         private Panel panel4;
         private ComboBox comboBox6;
         private Label label12;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

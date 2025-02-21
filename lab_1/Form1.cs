@@ -2,6 +2,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
+using static lab_1.InternerOperatorList;
 
 namespace lab_1
 {
@@ -15,6 +16,10 @@ namespace lab_1
         private Dictionary<int, Panel> _panelDict;
 
         private Dictionary<String, bool> _boolDict;
+
+        private delegate int Editing(IntPtr hWnd, String text, String caption, uint type);
+
+        private event Editing _editing;
 
 
         public Form1()
@@ -53,17 +58,6 @@ namespace lab_1
 
             };
 
-            comboBox1.DataSource = new List<String>()
-            {
-                IntOperConsts.KeyNameOperator,
-                IntOperConsts.KeyPriceOfMonth,
-                IntOperConsts.KeycntUsers,
-                IntOperConsts.KeySpeedMb,
-                IntOperConsts.KeySupport5g,
-                IntOperConsts.KeyfamilySharing,
-                IntOperConsts.KeyRoutArend
-            };
-
             _localList = new InternerOperatorList();
 
             _panelDict = new Dictionary<int, Panel>()
@@ -84,15 +78,17 @@ namespace lab_1
                 [FormsConstans.FALSEKEY] = FormsConstans.FALSEVALUE
             };
 
+            _editing += MessageBox;
+
             HideAllPanels();
         }
 
-        private void checkValues(int cntParams) 
+        private void checkValues(int cntParams)
         {
-            if (comboBox3.SelectedItem.ToString().Equals(FormsConstans.VALUE0.ToString() ) &&
+            if (comboBox3.SelectedItem.ToString().Equals(FormsConstans.VALUE0.ToString()) &&
                 _localList.find(InternetOperator.NAME)) { throw new ObjectExists(); }
             if (_localList.find(textBox2.Text)) { throw new ObjectExists(); }
-            if (cntParams >= FormsConstans.VALUE1) 
+            if (cntParams >= FormsConstans.VALUE1)
             {
                 Regex regex = new Regex(Regs._nameReg);
                 if (!regex.Match(textBox2.Text).Success)
@@ -101,7 +97,7 @@ namespace lab_1
                 }
             }
 
-            if (cntParams >= FormsConstans.VALUE2) 
+            if (cntParams >= FormsConstans.VALUE2)
             {
                 Regex regex = new Regex(Regs._priceReg);
                 if (!regex.Match(textBox4.Text).Success)
@@ -110,15 +106,15 @@ namespace lab_1
                 }
             }
 
-            if (cntParams >= FormsConstans.VALUE3) 
+            if (cntParams >= FormsConstans.VALUE3)
             {
                 Regex regex = new Regex(Regs._cntUsersReg);
-                if (numericUpDown1.Value == Regs.zeroUsers) 
+                if (numericUpDown1.Value == Regs.zeroUsers)
                 {
                     throw new CntZeroUsers();
                 }
 
-                if (!regex.Match(numericUpDown1.Value.ToString()).Success) 
+                if (!regex.Match(numericUpDown1.Value.ToString()).Success)
                 {
                     throw new CntUsersException();
                 }
@@ -126,13 +122,13 @@ namespace lab_1
 
             if (cntParams >= FormsConstans.VALUE4)
             {
-                if (numericUpDown2.Value > Regs.maxSpeed || numericUpDown2.Value < Regs.minSpeed) 
+                if (numericUpDown2.Value > Regs.maxSpeed || numericUpDown2.Value < Regs.minSpeed)
                 {
                     throw new SpeedException();
                 }
             }
 
-            if (cntParams >= FormsConstans.VALUE5) 
+            if (cntParams >= FormsConstans.VALUE5)
             {
                 if (comboBox10.SelectedIndex == -1) { throw new FieldNotChosen(); }
             }
@@ -210,7 +206,7 @@ namespace lab_1
             }
         }
 
-        private void button3_Click(object sender, EventArgs e) 
+        private void button3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -247,6 +243,7 @@ namespace lab_1
                 localOperator.Support5g = _boolDict[comboBox8.Text];
                 localOperator.FamilySharing = _boolDict[comboBox6.Text];
                 localOperator.RoutArend = _boolDict[comboBox7.Text];
+                _editing?.Invoke(this.Handle, IntOperConsts.EDITING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
 
             }
             catch (Exception ex)
@@ -260,10 +257,10 @@ namespace lab_1
             try
             {
                 InternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
-                _localList.add(localOperator);
-                comboBox2.Items.Add(localOperator.NameOperator);
+                _localList.add(localOperator, this.Handle);
                 comboBox5.Items.Add(localOperator.NameOperator);
                 textBox1.Text = InternetOperator.cntObj.ToString();
+                _editing?.Invoke(this.Handle, IntOperConsts.ADDING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
             }
             catch (Exception ex)
             {
@@ -271,60 +268,19 @@ namespace lab_1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (comboBox2.SelectedIndex == -1) { throw new ObjWasntChosen(); }
-                InternetOperator localOperator = _localList.getByName(comboBox2.SelectedItem.ToString());
-                switch (comboBox1.SelectedItem.ToString())
-                {
-                    case IntOperConsts.KeyNameOperator:
-                        richTextBox1.Text = localOperator.NameOperator;
-                        break;
-                    case IntOperConsts.KeyPriceOfMonth:
-                        richTextBox1.Text = localOperator.PriceOfMonth.ToString();
-                        break;
-                    case IntOperConsts.KeycntUsers:
-                        richTextBox1.Text = localOperator.CntUsers.ToString();
-                        break;
-                    case IntOperConsts.KeySpeedMb:
-                        richTextBox1.Text = localOperator.SpeedMb;
-                        break;
-                    case IntOperConsts.KeySupport5g:
-                        richTextBox1.Text = localOperator.Support5g.ToString();
-                        break;
-                    case IntOperConsts.KeyfamilySharing:
-                        richTextBox1.Text = localOperator.FamilySharing.ToString();
-                        break;
-                    case IntOperConsts.KeyRoutArend:
-                        richTextBox1.Text = localOperator.RoutArend.ToString();
-                        break;
-                    case IntOperConsts.KeyAll:
-                        richTextBox1.Text = localOperator.ToString();
-                        break;
-                    default:
-                        break;
-                }
-            }
-            catch (ObjWasntChosen ex)
-            {
-                MessageBox(this.Handle, ex.Message, "Œ¯Ë·Í‡", 0);
-            }
-        }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox5.SelectedIndex != -1)
             {
                 InternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
-                textBox3.Text = localOperator.NameOperator; 
-                textBox5.Text = localOperator.PriceOfMonth.ToString(); 
-                numericUpDown3.Value = localOperator.CntUsers; 
-                numericUpDown4.Value = Convert.ToInt32(localOperator.SpeedMb, 16); 
-                comboBox8.Text = localOperator.Support5g.ToString(); 
+                textBox3.Text = localOperator.NameOperator;
+                textBox5.Text = localOperator.PriceOfMonth.ToString();
+                numericUpDown3.Value = localOperator.CntUsers;
+                numericUpDown4.Value = Convert.ToInt32(localOperator.SpeedMb, 16);
+                comboBox8.Text = localOperator.Support5g.ToString();
                 comboBox6.Text = localOperator.FamilySharing.ToString();
-                comboBox7.Text = localOperator.RoutArend.ToString(); 
+                comboBox7.Text = localOperator.RoutArend.ToString();
             }
 
         }
@@ -333,6 +289,7 @@ namespace lab_1
         {
 
         }
+
     }
 
     public static class FormsConstans

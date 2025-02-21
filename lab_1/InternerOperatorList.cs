@@ -4,10 +4,11 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace lab_1
 {
-    public class InternerOperatorList
+public class InternerOperatorList
     {
         private List<InternetOperator> _localList;
 
@@ -16,9 +17,15 @@ namespace lab_1
             _localList = new List<InternetOperator>();
         }
 
-        public void add(InternetOperator internetOperator)
+        public void add(InternetOperator internetOperator, IntPtr hWnd)
         {
             _localList.Add(internetOperator);
+        }
+
+        public void del(String nameOperator, IntPtr hWnd)
+        {
+            InternetOperator localInternetOperator = getByName(nameOperator);
+            _localList.Remove(localInternetOperator);
         }
 
         public bool find(String nameOperator)
