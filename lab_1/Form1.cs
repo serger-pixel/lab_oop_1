@@ -21,6 +21,9 @@ namespace lab_1
 
         private event Editing _editing;
 
+        private int _cntTests = 1;
+
+
 
         public Form1()
         {
@@ -247,7 +250,7 @@ namespace lab_1
                     localOperator.NameOperator = textBox3.Text;
                     localOperator.PriceOfMonth = decimal.Parse(textBox5.Text);
                     localOperator.CntUsers = (int)numericUpDown3.Value;
-                    localOperator.SpeedMb = ((int)numericUpDown4.Value).ToString("X");
+                    localOperator.SpeedMb = "0X" + ((int)numericUpDown4.Value).ToString("X");
                     localOperator.Support5g = _boolDict[comboBox8.Text];
                     localOperator.FamilySharing = _boolDict[comboBox6.Text];
                     localOperator.RoutArend = _boolDict[comboBox7.Text];
@@ -267,8 +270,9 @@ namespace lab_1
             try
             {
                 InternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
-                _localList.add(localOperator);
+                _localList.Add(localOperator);
                 comboBox5.Items.Add(localOperator.NameOperator);
+                InternetOperator.cntObj++;
                 textBox1.Text = InternetOperator.cntObj.ToString();
 
                 textBox2.Clear();
@@ -278,6 +282,7 @@ namespace lab_1
                 comboBox10.SelectedIndex = -1;
                 comboBox4.SelectedIndex = -1;
                 comboBox9.SelectedIndex = -1;
+
 
                 _editing?.Invoke(this.Handle, IntOperConsts.ADDING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
             }
@@ -327,6 +332,7 @@ namespace lab_1
                     comboBox8.SelectedIndex = -1;
                     comboBox6.SelectedIndex = -1;
                     comboBox7.SelectedIndex = -1;
+
                     _editing?.Invoke(this.Handle, IntOperConsts.DELETING + deletedName, IntOperConsts.TITLE, 0);
                 }
                 else
@@ -340,6 +346,29 @@ namespace lab_1
             }
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int[] result;
+            if (radioButton1.Checked)
+            {
+                result = _localList.test(IntOperLstConsts.SEQUENCESELECT);
+            }
+            else
+            {
+                result = _localList.test(IntOperLstConsts.RANDOMSELECT);
+            }
+            listView1.Items.Add(new ListViewItem());
+            ListViewItem item = new ListViewItem();
+            item.SubItems.Clear();
+            item.SubItems[0].Text = (_cntTests.ToString());
+            item.SubItems.Add(result[0].ToString());
+            item.SubItems.Add(result[1].ToString());
+            listView1.Items.Add(item);
+            _cntTests++;
+
+        }
+           
     }
 
     public static class FormsConstans

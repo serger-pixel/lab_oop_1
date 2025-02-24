@@ -21,6 +21,10 @@ namespace lab_1
         public const string ADDING = "Добавление элемента: ";
         public const string EDITING = "Изменение элемента: ";
         public const string TITLE = "Изменение";
+
+        public const String UPKEYS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public const String DOWNKEYS = "abcdefghijklmnopqrstuvwxyz";
+        public const int MAXLEN = 20;
     }
 
     public class InternetOperator
@@ -32,6 +36,7 @@ namespace lab_1
         public const bool SUPPORT5G = false;
         public const bool FAMILYSHARING = false;
         public const bool routArend = false;
+
 
         public static int cntObj = 0;
         public String NameOperator { get; set; }
@@ -53,7 +58,6 @@ namespace lab_1
             Support5g = support5g;
             FamilySharing = familySharing;
             RoutArend = routArend;
-            cntObj++;
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth,
@@ -106,5 +110,6 @@ namespace lab_1
                 "Поддержка семейного тарифа" + FamilySharing + "\n" +
                 "Аренда роутера" + RoutArend;
         }
+
     }
 }

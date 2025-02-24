@@ -39,6 +39,7 @@ namespace lab_1
         public const String OBJWASNTCHOSEN = "Объект не выбран";
 
         public const String FILEDNOTCHOSEN = "Поле не выбрано";
+
     }
 
     public class NameException : Exception
@@ -80,4 +81,5 @@ namespace lab_1
     {
         public FieldNotChosen() : base(ExceptionMessages.FILEDNOTCHOSEN) { }
     }
+
 }
