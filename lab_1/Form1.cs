@@ -368,7 +368,16 @@ namespace lab_1
             _cntTests++;
 
         }
-           
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            foreach (var oper in _localList) 
+            {
+                ListViewItem item = new ListViewItem();
+                item.SubItems[0].Text = oper.NameOperator;
+                listView2.Items.Add(item);
+            }
+        }
     }
 
     public static class FormsConstans
