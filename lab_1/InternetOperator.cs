@@ -24,7 +24,7 @@ namespace lab_1
 
         public const String UPKEYS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         public const String DOWNKEYS = "abcdefghijklmnopqrstuvwxyz";
-        public const int MAXLEN = 20;
+        public const int MINLENGEN = 4;
     }
 
     public class InternetOperator

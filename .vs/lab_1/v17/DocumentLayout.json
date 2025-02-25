@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\C# labs\\lab_oop_1\\",
+  "WorkspaceRootPath": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|e:\\c# labs\\lab_oop_1\\lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|d:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\interneroperatorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\interneroperatorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|d:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|e:\\c# labs\\lab_oop_1\\lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|e:\\c# labs\\lab_oop_1\\lab_1\\internetoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\internetoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|d:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\ourexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\ourexceptions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|e:\\c# labs\\lab_oop_1\\lab_1\\interneroperatorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\interneroperatorlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|d:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\internetoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABD29CD3-B2E4-4FB3-92FF-5D112A7ECB10}|lab_1\\lab_1.csproj|solutionrelative:lab_1\\internetoperator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,10 +34,6 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
@@ -44,7 +44,7 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -52,51 +52,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "DocumentMoniker": "E:\\C# labs\\lab_oop_1\\lab_1\\Form1.cs",
-              "RelativeDocumentMoniker": "lab_1\\Form1.cs",
-              "ToolTip": "E:\\C# labs\\lab_oop_1\\lab_1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "lab_1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentIndex": 3,
+              "Title": "OurExceptions.cs",
+              "DocumentMoniker": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\OurExceptions.cs",
+              "RelativeDocumentMoniker": "lab_1\\OurExceptions.cs",
+              "ToolTip": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\OurExceptions.cs",
+              "RelativeToolTip": "lab_1\\OurExceptions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:35:50.268Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+              "WhenOpened": "2025-02-25T04:49:37.797Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "InternetOperator.cs",
-              "DocumentMoniker": "E:\\C# labs\\lab_oop_1\\lab_1\\InternetOperator.cs",
-              "RelativeDocumentMoniker": "lab_1\\InternetOperator.cs",
-              "ToolTip": "E:\\C# labs\\lab_oop_1\\lab_1\\InternetOperator.cs",
-              "RelativeToolTip": "lab_1\\InternetOperator.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAQwDsAAAAiAAAAAAAAAA==",
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "DocumentMoniker": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\Form1.cs",
+              "RelativeDocumentMoniker": "lab_1\\Form1.cs",
+              "ToolTip": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "lab_1\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-24T15:14:29.949Z"
+              "WhenOpened": "2025-02-24T15:35:50.268Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "InternerOperatorList.cs",
-              "DocumentMoniker": "E:\\C# labs\\lab_oop_1\\lab_1\\InternerOperatorList.cs",
-              "RelativeDocumentMoniker": "lab_1\\InternerOperatorList.cs",
-              "ToolTip": "E:\\C# labs\\lab_oop_1\\lab_1\\InternerOperatorList.cs",
-              "RelativeToolTip": "lab_1\\InternerOperatorList.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAwwA0AAAAtAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "InternetOperator.cs",
+              "DocumentMoniker": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\InternetOperator.cs",
+              "RelativeDocumentMoniker": "lab_1\\InternetOperator.cs",
+              "ToolTip": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\InternetOperator.cs",
+              "RelativeToolTip": "lab_1\\InternetOperator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T12:00:02.168Z"
+              "WhenOpened": "2025-02-24T15:14:29.949Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\Form1.cs",
+              "RelativeDocumentMoniker": "lab_1\\Form1.cs",
+              "ToolTip": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\Form1.cs",
+              "RelativeToolTip": "lab_1\\Form1.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAawIIBAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-15T12:03:37.913Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "E:\\C# labs\\lab_oop_1\\lab_1\\Form1.cs",
-              "RelativeDocumentMoniker": "lab_1\\Form1.cs",
-              "ToolTip": "E:\\C# labs\\lab_oop_1\\lab_1\\Form1.cs",
-              "RelativeToolTip": "lab_1\\Form1.cs",
-              "ViewState": "AgIAAGgBAAAAAAAAAAAwwHcBAAA3AAAAAAAAAA==",
+              "Title": "InternerOperatorList.cs",
+              "DocumentMoniker": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\InternerOperatorList.cs",
+              "RelativeDocumentMoniker": "lab_1\\InternerOperatorList.cs",
+              "ToolTip": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\InternerOperatorList.cs",
+              "RelativeToolTip": "lab_1\\InternerOperatorList.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAcwMYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T12:03:37.913Z",
+              "WhenOpened": "2025-02-15T12:00:02.168Z",
               "EditorCaption": ""
             }
           ]

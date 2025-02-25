@@ -17,9 +17,17 @@ namespace lab_1
 
         private Dictionary<String, bool> _boolDict;
 
-        private delegate int Editing(IntPtr hWnd, String text, String caption, uint type);
+        private delegate void OnEditing(String mess, InternetOperator local);
 
-        private event Editing _editing;
+        private delegate void OnAdd(String mess, InternetOperator local);
+
+        private delegate void OnDelete(String mess, InternetOperator local);
+
+        private event OnEditing _onEditing;
+
+        private event OnAdd _onAdd;
+
+        private event OnDelete _onDelete;
 
         private int _cntTests = 1;
 
@@ -80,8 +88,6 @@ namespace lab_1
                 [FormsConstans.TRUEKEY] = FormsConstans.TRUEVALUE,
                 [FormsConstans.FALSEKEY] = FormsConstans.FALSEVALUE
             };
-
-            _editing += MessageBox;
 
             HideAllPanels();
         }
@@ -254,7 +260,8 @@ namespace lab_1
                     localOperator.Support5g = _boolDict[comboBox8.Text];
                     localOperator.FamilySharing = _boolDict[comboBox6.Text];
                     localOperator.RoutArend = _boolDict[comboBox7.Text];
-                    _editing?.Invoke(this.Handle, IntOperConsts.EDITING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
+                    _onEditing = edit;
+                    _onEditing?.Invoke(IntOperConsts.EDITING, localOperator);
                 }
 
 
@@ -283,8 +290,8 @@ namespace lab_1
                 comboBox4.SelectedIndex = -1;
                 comboBox9.SelectedIndex = -1;
 
-
-                _editing?.Invoke(this.Handle, IntOperConsts.ADDING + localOperator.NameOperator, IntOperConsts.TITLE, 0);
+                _onAdd = add;
+                _onAdd?.Invoke(IntOperConsts.ADDING, localOperator);
             }
             catch (Exception ex)
             {
@@ -320,6 +327,7 @@ namespace lab_1
             {
                 if (textBox3.Text != "")
                 {
+                    InternetOperator localOperator = _localList.getByName(textBox3.Text);
                     _localList.del(textBox3.Text);
                     InternetOperator.cntObj--;
                     textBox1.Text = InternetOperator.cntObj.ToString();
@@ -333,7 +341,8 @@ namespace lab_1
                     comboBox6.SelectedIndex = -1;
                     comboBox7.SelectedIndex = -1;
 
-                    _editing?.Invoke(this.Handle, IntOperConsts.DELETING + deletedName, IntOperConsts.TITLE, 0);
+                    _onDelete = delete;
+                    _onDelete?.Invoke(IntOperConsts.DELETING, localOperator);
                 }
                 else
                 {
@@ -350,13 +359,16 @@ namespace lab_1
         private void button4_Click(object sender, EventArgs e)
         {
             int[] result;
-            if (radioButton1.Checked)
+            String type;
+            if (radioButton2.Checked)
             {
                 result = _localList.test(IntOperLstConsts.SEQUENCESELECT);
+                type = IntOperLstConsts.SEQUENCESELECT;
             }
             else
             {
                 result = _localList.test(IntOperLstConsts.RANDOMSELECT);
+                type = IntOperLstConsts.RANDOMSELECT;
             }
             listView1.Items.Add(new ListViewItem());
             ListViewItem item = new ListViewItem();
@@ -364,6 +376,7 @@ namespace lab_1
             item.SubItems[0].Text = (_cntTests.ToString());
             item.SubItems.Add(result[0].ToString());
             item.SubItems.Add(result[1].ToString());
+            item.SubItems.Add(type);
             listView1.Items.Add(item);
             _cntTests++;
 
@@ -371,12 +384,28 @@ namespace lab_1
 
         private void button5_Click(object sender, EventArgs e)
         {
+            listView2.Items.Clear();
             foreach (var oper in _localList) 
             {
                 ListViewItem item = new ListViewItem();
                 item.SubItems[0].Text = oper.NameOperator;
                 listView2.Items.Add(item);
             }
+        }
+
+        private void edit(String mess, InternetOperator local)
+        {
+            MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
+        }
+
+        private void add(String mess, InternetOperator local) 
+        {
+            MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
+        }
+
+        private void delete(String mess, InternetOperator local)
+        {
+            MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
         }
     }
 

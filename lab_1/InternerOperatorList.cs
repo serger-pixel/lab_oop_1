@@ -11,11 +11,11 @@ namespace lab_1
 {
 public static class IntOperLstConsts
     {
-        public const int CNTGENERATE = 100000;
+        public const int CNTGENERATE  = 10000000;
+        
+        public const String RANDOMSELECT = "Случайный";
 
-        public const int RANDOMSELECT = 1;
-
-        public const int SEQUENCESELECT = 2;
+        public const String SEQUENCESELECT = "Последовательный";
     }
 
 public class InternerOperatorList: IList<InternetOperator>
@@ -122,32 +122,21 @@ public class InternerOperatorList: IList<InternetOperator>
 
         }
 
-        private void generate()
+        private void generate(int ind)
         {
             String name;
-            Random random = new Random();
-            InternetOperator localOperator;
-            do
-            {
-                name = "";
-                name += IntOperConsts.UPKEYS[random.Next(0, IntOperConsts.UPKEYS.Length - 1)];
-                name += IntOperConsts.DOWNKEYS[random.Next(0, IntOperConsts.UPKEYS.Length - 1)];
-                name += IntOperConsts.DOWNKEYS[random.Next(0, IntOperConsts.UPKEYS.Length - 1)];
-                name += IntOperConsts.DOWNKEYS[random.Next(0, IntOperConsts.UPKEYS.Length - 1)];
-            }
-            while (_localList.Contains(new InternetOperator(name)));
-            _localList.Add(new InternetOperator(name));
+            _localList.Add(new InternetOperator(InternetOperator.NAME + ind.ToString()));
         }
 
         public void generateOneHundThous()
         {
             for (int i = 0; i < IntOperLstConsts.CNTGENERATE; i++) 
             {
-                generate();
+                generate(i);
             }   
         }
 
-        public int[] test(int select)
+        public int[] test(String select)
         {
             List<InternetOperator> local = _localList.ToList();
             _localList.Clear();
@@ -164,7 +153,7 @@ public class InternerOperatorList: IList<InternetOperator>
                     StartList = Environment.TickCount;
                     for (int i = 0; i < IntOperLstConsts.CNTGENERATE; i++)
                     {
-                        _localList.RemoveAt(0);
+                        _localList[i] = null;
                     }
                     EndList =Environment.TickCount - StartList;
                     StartArr = Environment.TickCount;
@@ -173,18 +162,23 @@ public class InternerOperatorList: IList<InternetOperator>
                         array.SetValue(null, i);
                     }
                     EndArr =Environment.TickCount - StartArr;
-                    result = new int[] { EndList, EndList };
+                    result = new int[] { EndList,  EndArr};
                     break;
 
                 case IntOperLstConsts.RANDOMSELECT:
                     Random random = new Random();
                     StartList = Environment.TickCount;
+                    int ind;
                     for (int i = 0; i < IntOperLstConsts.CNTGENERATE; i++)
                     {
-                        _localList.RemoveAt(random.Next(0, _localList.Count));
+                        ind = random.Next(0, array.Length);
+                        while (_localList[ind] == null)
+                        {
+                            ind = random.Next(0, array.Length);
+                        }
+                        _localList[ind] = null;
                     }
                     EndList = Environment.TickCount - StartList;
-                    int ind;
                     StartArr = Environment.TickCount;
                     for (int i = 0; i < IntOperLstConsts.CNTGENERATE; i++)
                     {
@@ -196,7 +190,7 @@ public class InternerOperatorList: IList<InternetOperator>
                         array.SetValue(null, ind);
                     }
                     EndArr = Environment.TickCount - StartArr;
-                    result = new int[] { EndList, EndList };
+                    result = new int[] { EndList, EndArr };
                     break;
                 default:
                     break;
