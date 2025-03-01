@@ -17,17 +17,14 @@ namespace lab_1
 
         private Dictionary<String, bool> _boolDict;
 
-        private delegate void OnEditing(String mess, InternetOperator local);
+        private delegate void OnListChange(String mess, InternetOperator local);
 
-        private delegate void OnAdd(String mess, InternetOperator local);
 
-        private delegate void OnDelete(String mess, InternetOperator local);
+        private event OnListChange _onEditing;
 
-        private event OnEditing _onEditing;
+        private event OnListChange _onAdd;
 
-        private event OnAdd _onAdd;
-
-        private event OnDelete _onDelete;
+        private event OnListChange _onDelete;
 
         private int _cntTests = 1;
 
