@@ -12,6 +12,15 @@ namespace lab_1
         public const String DOCSISSPEED = "12C";
         public const String MOBILESPEED = "24";
         public const String SATELLITESPEED = "28";
+
+        public const String MOBILE = "мобильный";
+        public const String ADSL = "adsl";
+        public const String DOCSISS = "docsiss";
+        public const String SATILLITE = "спутниковый";
+
+        public const String WIRED = "проводной";
+        public const String WIRELESS = "беспроводной";
+
     } 
 
     public interface IFabric

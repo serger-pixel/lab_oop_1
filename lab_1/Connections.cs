@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace lab_1
 {
-    public enum CONNECTIONTYPES 
+    public enum CONNECTIONTYPES: int 
     {
         WIRED,
         WIRELESS
     }
-    public enum SPECIFICATIONS 
+    public enum SPECIFICATIONS: int
     {
         ADSL,
         DOCSIS,
