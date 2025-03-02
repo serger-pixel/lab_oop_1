@@ -32,71 +32,42 @@ namespace lab_1
         public const String NAME = "Default";
         public const decimal PRICE = 100;
         public const int CNTUSERS = 1;
-        public const String SPEED = "0X80";
-        public const bool SUPPORT5G = false;
-        public const bool FAMILYSHARING = false;
-        public const bool routArend = false;
-
+        
 
         public static int cntObj = 0;
         public String NameOperator { get; set; }
         public decimal PriceOfMonth { get; set; }
         public int CntUsers { get; set; }
-        public String SpeedMb { get; set; }
-        public bool Support5g { get; set; }
-        public bool FamilySharing { get; set; }
-        public bool RoutArend { get;  set; }
+        public Connection Connection { get; set; }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth, 
-            int cntUsers, String speedMb, bool support5g, 
-            bool familySharing, bool routArend)
+            int cntUsers, IFabric fabric)
         {
             NameOperator = nameOperator;
             PriceOfMonth = priceOfMonth;
             CntUsers = cntUsers;
-            SpeedMb = speedMb;
-            Support5g = support5g;
-            FamilySharing = familySharing;
-            RoutArend = routArend;
+            Connection = fabric.createConnection();
         }
 
-        public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, String speedMb, bool Support5g, bool familySharing): 
-            this(nameOperator, priceOfMonth, cntUsers,
-                speedMb, Support5g, familySharing, routArend)
-        { }
+        public InternetOperator(String nameOperator, decimal priceOfMonth, int cntUsers)
+        {
+            NameOperator = nameOperator;
+            PriceOfMonth = priceOfMonth;
+            CntUsers = cntUsers;
+            Connection = new FabricADSL().createConnection();
+        }
 
-        public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, String speedMb, bool Support5g): 
-            this(nameOperator, priceOfMonth, cntUsers, 
-                speedMb, Support5g, FAMILYSHARING, routArend)
-        { }
-
-        public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers, String speedMb) :
-            this(nameOperator, priceOfMonth, cntUsers,
-                speedMb, SUPPORT5G, FAMILYSHARING, routArend)
-        { }
-
-        public InternetOperator(String nameOperator, decimal priceOfMonth,
-            int cntUsers) :
-            this(nameOperator, priceOfMonth, cntUsers,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
-        { }
-
-        public InternetOperator(String nameOperator, decimal priceOfMonth) :
-            this(nameOperator, priceOfMonth, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+        public InternetOperator(String nameOperator, decimal priceOfMonth): 
+            this(nameOperator, priceOfMonth, CNTUSERS)
         { }
 
         public InternetOperator(String nameOperator) :
-            this(nameOperator, PRICE, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+            this(nameOperator, PRICE, CNTUSERS)
         { }
 
+
         public InternetOperator() :
-            this(NAME, PRICE, CNTUSERS,
-                SPEED, SUPPORT5G, FAMILYSHARING, routArend)
+            this(NAME, PRICE, CNTUSERS)
         { }
 
         public override String ToString()
@@ -105,10 +76,10 @@ namespace lab_1
                 "Имя: " + NameOperator + "\n" +
                 "Цена: " + PriceOfMonth + "\n" +
                 "Кол-во пользовотелей: " + CntUsers + "\n" +
-                "Скорость интернета: " + SpeedMb + "\n" +
-                "Поддержка 5g" + Support5g + "\n" +
-                "Поддержка семейного тарифа" + FamilySharing + "\n" +
-                "Аренда роутера" + RoutArend;
+                "Скорость интернета: " + Connection.Speed + "\n" +
+                "Тип подключения: " + Connection.ConnectionType + "\n" +
+                "Спецификация подключения: " + Connection.Specification;
+                
         }
 
     }
