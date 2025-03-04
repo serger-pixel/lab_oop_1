@@ -6,6 +6,12 @@ using static lab_1.InternerOperatorList;
 
 namespace lab_1
 {
+    enum indexComboBox: int
+    {
+        COMBOBOX1,
+        COMBOBOX2,
+    }
+
     public partial class Form1 : Form
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -19,12 +25,16 @@ namespace lab_1
 
         private delegate void OnListChange(String mess, InternetOperator local);
 
+        private delegate void UpdateTable();
+
 
         private event OnListChange _onEditing;
 
         private event OnListChange _onAdd;
 
         private event OnListChange _onDelete;
+
+        private event UpdateTable _onUpdateTable;
 
         private int _cntTests = 1;
 
@@ -34,13 +44,14 @@ namespace lab_1
         {
             InitializeComponent();
 
-            comboBox1.DataSource = new List<SPECIFICATIONS>() 
-            { 
+            comboBox1.DataSource = new List<SPECIFICATIONS>()
+            {
                 SPECIFICATIONS.ADSL,
                 SPECIFICATIONS.DOCSIS,
                 SPECIFICATIONS.MOBILE,
                 SPECIFICATIONS.SATELLITE
             };
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             comboBox1.SelectedIndex = -1;
 
             comboBox2.DataSource = new List<SPECIFICATIONS>()
@@ -50,7 +61,23 @@ namespace lab_1
                 SPECIFICATIONS.MOBILE,
                 SPECIFICATIONS.SATELLITE
             };
+            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             comboBox2.SelectedIndex = -1;
+
+            comboBox4.DataSource = new List<bool>()
+            {
+                ConnectionConsts.VPNSUP,
+                ConnectionConsts.VPNNOSUP
+            };
+            comboBox4.SelectedIndex = -1;
+
+            comboBox6.DataSource = new List<bool>()
+            {
+                ConnectionConsts.VPNSUP,
+                ConnectionConsts.VPNNOSUP
+            };
+            comboBox6.SelectedIndex = -1;
+
 
             comboBox3.DataSource = new List<int>()
             {
@@ -70,6 +97,9 @@ namespace lab_1
                 [FormsConstans.VALUE3] = usercntPanel,
                 [FormsConstans.VALUE4] = typePanel
             };
+            comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+
+            _onUpdateTable = displayOperators;
 
             HideAllPanels();
         }
@@ -111,33 +141,45 @@ namespace lab_1
                 }
             }
 
-            if (cntParams >= FormsConstans.VALUE4)
+            if (cntParams == FormsConstans.VALUE4)
             {
-                if (comboBox1.SelectedIndex == -1) { throw new FieldNotChosen(); }
+                if (comboBox1.SelectedIndex == -1 || comboBox4.SelectedIndex == -1) { throw new FieldNotChosen(); }
             }
 
         }
 
-        private IFabric chooseFabric(int choosen)
+        private IFabric chooseFabric(bool choosen)
         {
             switch (choosen)
             {
-                case (int)SPECIFICATIONS.ADSL:
-                    return new FabricADSL();
-                case (int)SPECIFICATIONS.MOBILE:
-                    return new FabricMobile();
-                case (int)SPECIFICATIONS.DOCSIS:
-                    return new FabricDOCSIS();
-                case (int)SPECIFICATIONS.SATELLITE:
-                    return new FabricSatellite();
+                case ConnectionConsts.VPNSUP:
+                    return new FabricVpnSup();
+                case ConnectionConsts.VPNNOSUP:
+                    return new FabricVpnNoSup();
                 default:
                     return null;
             }
         }
 
-        private InternetOperator createOperator(int cntParams)
+        private Connection chooseObj(ComboBox comboBox, IFabric fabric)
         {
-            checkValues(cntParams);
+            switch (comboBox.SelectedItem)
+            {
+                case SPECIFICATIONS.ADSL:
+                    return fabric.createADSLConnection();
+                case SPECIFICATIONS.DOCSIS:
+                    return fabric.createDOCSISConnection();
+                case SPECIFICATIONS.MOBILE:
+                    return fabric.createMobileConnection();
+                case SPECIFICATIONS.SATELLITE:
+                    return fabric.createSatelliteConnection();
+                default:
+                    return null;
+            }
+        }
+
+        private InternetOperator chooseConstructor(int cntParams)
+        {
             switch (cntParams)
             {
                 case FormsConstans.VALUE0:
@@ -150,50 +192,74 @@ namespace lab_1
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
                         (int)numericUpDown1.Value);
                 case FormsConstans.VALUE4:
-                    IFabric fabrica = chooseFabric(int.Parse(comboBox1.SelectedItem.ToString()));
+                    IFabric fabric = chooseFabric(Convert.ToBoolean(comboBox4.SelectedItem));
+                    Connection connetction = chooseObj(comboBox1, fabric);
                     return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, fabrica);
+                        (int)numericUpDown1.Value, connetction);
                 default:
                     return null;
             }
         }
 
-        private void displayTypeParams(ComboBox comboBox)
+        private InternetOperator createOperator(int cntParams)
         {
-            switch (int.Parse(comboBox.SelectedItem.ToString()))
+            checkValues(cntParams);
+            return chooseConstructor(cntParams);
+        }
+
+        private TextBox[] chooseTextBox(indexComboBox index)
+        {
+            switch (index)
             {
-                case (int)SPECIFICATIONS.ADSL:
-                    textBox9.Text = ConnectionConsts.WIRED;
-                    textBox10.Text = ConnectionConsts.ADSLSPEED;
-                    textBox11.Text = ConnectionConsts.ADSL;
-                    break;
-                case (int)SPECIFICATIONS.MOBILE:
-                    textBox9.Text = ConnectionConsts.WIRELESS;
-                    textBox10.Text = ConnectionConsts.MOBILESPEED;
-                    textBox11.Text = ConnectionConsts.MOBILE;
-                    break;
-                case (int)SPECIFICATIONS.DOCSIS:
-                    textBox9.Text = ConnectionConsts.WIRED;
-                    textBox10.Text = ConnectionConsts.DOCSISSPEED;
-                    textBox11.Text = ConnectionConsts.DOCSISS;
-                    break;
-                case (int)SPECIFICATIONS.SATELLITE:
-                    textBox9.Text = ConnectionConsts.WIRELESS;
-                    textBox10.Text = ConnectionConsts.SATELLITESPEED;
-                    textBox11.Text = ConnectionConsts.SATILLITE;
-                    break;
+                case indexComboBox.COMBOBOX1:
+                    return new TextBox[] { textBox9, textBox10 };
+                case indexComboBox.COMBOBOX2:
+                    return new TextBox[] { textBox7, textBox8 };
                 default:
-                    break;
+                    return null;
             }
+        }
+
+        private String[] chooseSpecific(ComboBox comboBox)
+        {
+            switch (comboBox.SelectedItem)
+            {
+                case SPECIFICATIONS.ADSL:
+                    return new String[] { CONNECTIONTYPES.WIRED.ToString(), ConnectionConsts.ADSLSPEED };
+                case SPECIFICATIONS.MOBILE:
+                    return new String[] { CONNECTIONTYPES.WIRELESS.ToString(), ConnectionConsts.MOBILESPEED };
+                case SPECIFICATIONS.DOCSIS:
+                    return new String[] { CONNECTIONTYPES.WIRED.ToString(), ConnectionConsts.DOCSISSPEED };
+                case SPECIFICATIONS.SATELLITE:
+                    return new String[] { CONNECTIONTYPES.WIRELESS.ToString(), ConnectionConsts.SATELLITESPEED };
+                default:
+                    return null;
+            }
+        }
+
+        private void inputSpecific(TextBox[] textBoxes, String[] parametrs)
+        {
+            if (parametrs == null) return;
+            textBoxes[0].Text = parametrs[0];
+            textBoxes[1].Text = parametrs[1];
+        }
+
+        private void displayTypeParams(ComboBox comboBox, indexComboBox index)
+        {
+            TextBox[] textBoxes = chooseTextBox(index);
+            String[] parametrs = chooseSpecific(comboBox);
+            inputSpecific(textBoxes, parametrs);
+
+
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            displayTypeParams(comboBox1);
+            displayTypeParams(comboBox1, indexComboBox.COMBOBOX1);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            displayTypeParams(comboBox2);
+            displayTypeParams(comboBox2, indexComboBox.COMBOBOX2);
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,6 +288,18 @@ namespace lab_1
             {
                 pair.Value.Visible = false;
             }
+        }
+
+        private void clearInput(TextBox textBox1, TextBox textBox2, TextBox textBox3, TextBox textBox4,
+            NumericUpDown numericUp, ComboBox comboBox1, ComboBox comboBox2)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+            numericUp.Value = 0;
+            comboBox1.SelectedIndex = -1;
+            comboBox2.SelectedIndex = -1;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -253,12 +331,15 @@ namespace lab_1
                 if (!localOperator.NameOperator.Equals(textBox3.Text) ||
                     localOperator.PriceOfMonth != decimal.Parse(textBox5.Text) ||
                     localOperator.CntUsers != (int)numericUpDown3.Value ||
-                    (int)localOperator.Connection.Specification != comboBox2.SelectedIndex)
+                    localOperator.Connection.Specification != (SPECIFICATIONS)comboBox2.SelectedItem ||
+                    localOperator.Connection.Vpn != (bool)comboBox6.SelectedItem)
                 {
                     localOperator.NameOperator = textBox3.Text;
                     localOperator.PriceOfMonth = decimal.Parse(textBox5.Text);
                     localOperator.CntUsers = (int)numericUpDown3.Value;
-                    localOperator.Connection = chooseFabric(comboBox2.SelectedIndex).createConnection();
+                    IFabric fabric = chooseFabric(Convert.ToBoolean(comboBox6.SelectedItem));
+                    Connection connetction = chooseObj(comboBox2, fabric);
+                    localOperator.Connection = connetction;
                     _onEditing = edit;
                     _onEditing?.Invoke(IntOperConsts.EDITING, localOperator);
                 }
@@ -281,13 +362,11 @@ namespace lab_1
                 InternetOperator.cntObj++;
                 textBox1.Text = InternetOperator.cntObj.ToString();
 
-                textBox2.Clear();
-                textBox4.Clear();
-                numericUpDown1.Value = 0;
-                comboBox1.SelectedIndex = -1;
+                clearInput(textBox2, textBox4, textBox9, textBox10, numericUpDown1, comboBox1, comboBox4);
 
                 _onAdd = add;
                 _onAdd?.Invoke(IntOperConsts.ADDING, localOperator);
+                _onUpdateTable?.Invoke();
             }
             catch (Exception ex)
             {
@@ -304,7 +383,9 @@ namespace lab_1
                 textBox3.Text = localOperator.NameOperator;
                 textBox5.Text = localOperator.PriceOfMonth.ToString();
                 numericUpDown3.Value = localOperator.CntUsers;
-                comboBox2.SelectedIndex = (int)localOperator.Connection.Specification; 
+                comboBox2.SelectedItem = localOperator.Connection.Specification;
+                comboBox6.SelectedItem = localOperator.Connection.Vpn;
+
             }
 
         }
@@ -326,14 +407,12 @@ namespace lab_1
                     textBox1.Text = InternetOperator.cntObj.ToString();
                     comboBox5.Items.Remove(textBox3.Text);
                     String deletedName = textBox3.Text;
-                    textBox3.Clear();
-                    textBox5.Clear();
-                    numericUpDown3.Value = 0;
-                    comboBox2.SelectedIndex = -1;
 
+                    clearInput(textBox3, textBox5, textBox7, textBox8, numericUpDown3, comboBox2, comboBox6);
 
                     _onDelete = delete;
                     _onDelete?.Invoke(IntOperConsts.DELETING, localOperator);
+                    _onUpdateTable?.Invoke();
                 }
                 else
                 {
@@ -373,7 +452,7 @@ namespace lab_1
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void displayOperators()
         {
             listView2.Items.Clear();
             foreach (var oper in _localList)
@@ -399,6 +478,15 @@ namespace lab_1
             MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public static class FormsConstans

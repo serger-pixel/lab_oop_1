@@ -11,10 +11,6 @@ namespace lab_1
         public const String KeyNameOperator = "nameOperator";
         public const String KeyPriceOfMonth = "priceOfMonth";
         public const String KeycntUsers = "cntUsers";
-        public const String KeySpeedMb = "speedMb";
-        public const String KeySupport5g = "Support5g";
-        public const String KeyfamilySharing = "familySharing";
-        public const String KeyRoutArend = "routArend";
         public const String KeyAll = "All";
 
         public const string DELETING = "Удаление элемента: ";
@@ -41,12 +37,12 @@ namespace lab_1
         public Connection Connection { get; set; }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth, 
-            int cntUsers, IFabric fabric)
+            int cntUsers, Connection connection)
         {
             NameOperator = nameOperator;
             PriceOfMonth = priceOfMonth;
             CntUsers = cntUsers;
-            Connection = fabric.createConnection();
+            Connection = connection;
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth, int cntUsers)
@@ -54,7 +50,7 @@ namespace lab_1
             NameOperator = nameOperator;
             PriceOfMonth = priceOfMonth;
             CntUsers = cntUsers;
-            Connection = new FabricADSL().createConnection();
+            Connection = new FabricVpnNoSup().createMobileConnection();
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth): 
@@ -78,8 +74,9 @@ namespace lab_1
                 "Кол-во пользовотелей: " + CntUsers + "\n" +
                 "Скорость интернета: " + Connection.Speed + "\n" +
                 "Тип подключения: " + Connection.ConnectionType + "\n" +
-                "Спецификация подключения: " + Connection.Specification;
-                
+                "Спецификация подключения: " + Connection.Specification + "\n" +
+                "Поддержка VPN: " + Connection.Vpn;
+
         }
 
     }

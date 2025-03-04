@@ -6,61 +6,63 @@ using System.Threading.Tasks;
 
 namespace lab_1
 {
-    public static class ConnectionConsts 
-    {
-        public const String ADSLSPEED = "F";
-        public const String DOCSISSPEED = "12C";
-        public const String MOBILESPEED = "24";
-        public const String SATELLITESPEED = "28";
-
-        public const String MOBILE = "мобильный";
-        public const String ADSL = "adsl";
-        public const String DOCSISS = "docsiss";
-        public const String SATILLITE = "спутниковый";
-
-        public const String WIRED = "проводной";
-        public const String WIRELESS = "беспроводной";
-
-    } 
-
     public interface IFabric
     {
-        public Connection createConnection();
+        public Connection createADSLConnection();
+        public Connection createDOCSISConnection();
+        public Connection createMobileConnection();
+        public Connection createSatelliteConnection();
+
+
     }
 
-    public class FabricADSL : IFabric
+    public class FabricVpnSup : IFabric
     {
-        
-        public Connection createConnection() 
+        public Connection createADSLConnection() 
         {
-            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.ADSLSPEED, SPECIFICATIONS.ADSL);
+            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.ADSLSPEED, 
+                SPECIFICATIONS.ADSL, ConnectionConsts.VPNSUP);
+        }
+        public Connection createDOCSISConnection()
+        {
+            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.DOCSISSPEED, 
+                SPECIFICATIONS.DOCSIS, ConnectionConsts.VPNSUP);
+        }
+        public Connection createMobileConnection()
+        {
+            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.MOBILESPEED,
+                SPECIFICATIONS.MOBILE, ConnectionConsts.VPNSUP);
+        }
+
+        public Connection createSatelliteConnection()
+        {
+            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.SATELLITESPEED, 
+                SPECIFICATIONS.SATELLITE, ConnectionConsts.VPNSUP);
         }
     }
 
-    public class FabricDOCSIS : IFabric
+    public class FabricVpnNoSup : IFabric
     {
-
-        public Connection createConnection()
+        public Connection createADSLConnection()
         {
-            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.DOCSISSPEED, SPECIFICATIONS.DOCSIS);
+            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.ADSLSPEED,
+                SPECIFICATIONS.ADSL, ConnectionConsts.VPNNOSUP);
         }
-    }
-
-    public class FabricMobile : IFabric
-    {
-
-        public Connection createConnection()
+        public Connection createDOCSISConnection()
         {
-            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.MOBILESPEED, SPECIFICATIONS.MOBILE);
+            return new Connection(CONNECTIONTYPES.WIRED, ConnectionConsts.DOCSISSPEED,
+                SPECIFICATIONS.DOCSIS, ConnectionConsts.VPNNOSUP);
         }
-    }
-
-    public class FabricSatellite : IFabric
-    {
-
-        public Connection createConnection()
+        public Connection createMobileConnection()
         {
-            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.SATELLITESPEED, SPECIFICATIONS.SATELLITE);
+            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.MOBILESPEED,
+                SPECIFICATIONS.MOBILE, ConnectionConsts.VPNNOSUP);
+        }
+
+        public Connection createSatelliteConnection()
+        {
+            return new Connection(CONNECTIONTYPES.WIRELESS, ConnectionConsts.SATELLITESPEED,
+                SPECIFICATIONS.SATELLITE, ConnectionConsts.VPNNOSUP);
         }
     }
 }
