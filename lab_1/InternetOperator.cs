@@ -23,7 +23,74 @@ namespace lab_1
         public const int MINLENGEN = 4;
     }
 
-    public class InternetOperator
+    public interface IInternetOperator
+    {
+        public String NameOperator { get; set; }
+        public decimal PriceOfMonth { get; set; }
+        public int CntUsers { get; set; }
+        public Connection Connection { get; set; }
+    }
+
+    public class DiscountDecorator: IInternetOperator
+    {
+        private InternetOperator _localOperator;
+
+        private decimal _discount = 0;
+
+        public DiscountDecorator(InternetOperator localOperator, decimal discount)
+        {
+            _localOperator = localOperator;
+            _discount = discount;
+        }
+
+        public String NameOperator {
+            get{
+                return _localOperator.NameOperator;
+            }
+
+            set { 
+                _localOperator.NameOperator = value;
+            }
+        }
+        public decimal PriceOfMonth
+        {
+            get
+            {
+                return _localOperator.PriceOfMonth - _discount;
+            }
+
+            set
+            {
+                _localOperator.PriceOfMonth = value;
+            }
+        }
+        public int CntUsers
+        {
+            get
+            {
+                return _localOperator.CntUsers;
+            }
+
+            set
+            {
+                _localOperator.CntUsers = value;
+            }
+        }
+        public Connection Connection
+        {
+            get
+            {
+                return _localOperator.Connection;
+            }
+
+            set
+            {
+                _localOperator.Connection = value;
+            }
+        }
+    }
+
+    public class InternetOperator: IInternetOperator
     {
         public const String NAME = "Default";
         public const decimal PRICE = 100;
