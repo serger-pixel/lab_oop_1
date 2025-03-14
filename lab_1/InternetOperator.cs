@@ -50,7 +50,7 @@ namespace lab_1
             NameOperator = nameOperator;
             PriceOfMonth = priceOfMonth;
             CntUsers = cntUsers;
-            Connection = new FabricVpnNoSup().createMobileConnection();
+            Connection = new FabricVpnNoSup().createMobile();
         }
 
         public InternetOperator(String nameOperator, decimal priceOfMonth): 

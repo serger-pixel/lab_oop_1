@@ -44,37 +44,37 @@ namespace lab_1
         {
             InitializeComponent();
 
-            comboBox1.DataSource = new List<SPECIFICATIONS>()
+            comboBox1.DataSource = new List<Specification>()
             {
-                SPECIFICATIONS.ADSL,
-                SPECIFICATIONS.DOCSIS,
-                SPECIFICATIONS.MOBILE,
-                SPECIFICATIONS.SATELLITE
+                Specification.ADSL,
+                Specification.DOCSIS,
+                Specification.MOBILE,
+                Specification.SATELLITE
             };
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             comboBox1.SelectedIndex = -1;
 
-            comboBox2.DataSource = new List<SPECIFICATIONS>()
+            comboBox2.DataSource = new List<Specification>()
             {
-                SPECIFICATIONS.ADSL,
-                SPECIFICATIONS.DOCSIS,
-                SPECIFICATIONS.MOBILE,
-                SPECIFICATIONS.SATELLITE
+                Specification.ADSL,
+                Specification.DOCSIS,
+                Specification.MOBILE,
+                Specification.SATELLITE
             };
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
             comboBox2.SelectedIndex = -1;
 
             comboBox4.DataSource = new List<bool>()
             {
-                ConnectionConsts.VPNSUP,
-                ConnectionConsts.VPNNOSUP
+                true,
+                false
             };
             comboBox4.SelectedIndex = -1;
 
             comboBox6.DataSource = new List<bool>()
             {
-                ConnectionConsts.VPNSUP,
-                ConnectionConsts.VPNNOSUP
+                true,
+                false
             };
             comboBox6.SelectedIndex = -1;
 
@@ -152,9 +152,9 @@ namespace lab_1
         {
             switch (choosen)
             {
-                case ConnectionConsts.VPNSUP:
+                case true:
                     return new FabricVpnSup();
-                case ConnectionConsts.VPNNOSUP:
+                case false:
                     return new FabricVpnNoSup();
                 default:
                     return null;
@@ -165,14 +165,14 @@ namespace lab_1
         {
             switch (comboBox.SelectedItem)
             {
-                case SPECIFICATIONS.ADSL:
-                    return fabric.createADSLConnection();
-                case SPECIFICATIONS.DOCSIS:
-                    return fabric.createDOCSISConnection();
-                case SPECIFICATIONS.MOBILE:
-                    return fabric.createMobileConnection();
-                case SPECIFICATIONS.SATELLITE:
-                    return fabric.createSatelliteConnection();
+                case Specification.ADSL:
+                    return fabric.createADSL();
+                case Specification.DOCSIS:
+                    return fabric.createDOCSIS();
+                case Specification.MOBILE:
+                    return fabric.createMobile();
+                case Specification.SATELLITE:
+                    return fabric.createSatellite();
                 default:
                     return null;
             }
@@ -224,14 +224,14 @@ namespace lab_1
         {
             switch (comboBox.SelectedItem)
             {
-                case SPECIFICATIONS.ADSL:
-                    return new String[] { CONNECTIONTYPES.WIRED.ToString(), ConnectionConsts.ADSLSPEED };
-                case SPECIFICATIONS.MOBILE:
-                    return new String[] { CONNECTIONTYPES.WIRELESS.ToString(), ConnectionConsts.MOBILESPEED };
-                case SPECIFICATIONS.DOCSIS:
-                    return new String[] { CONNECTIONTYPES.WIRED.ToString(), ConnectionConsts.DOCSISSPEED };
-                case SPECIFICATIONS.SATELLITE:
-                    return new String[] { CONNECTIONTYPES.WIRELESS.ToString(), ConnectionConsts.SATELLITESPEED };
+                case Specification.ADSL:
+                    return new String[] { ConnectionType.WIRED.ToString(), Speed.ADSL };
+                case Specification.MOBILE:
+                    return new String[] { ConnectionType.WIRELESS.ToString(), Speed.MOBILE };
+                case Specification.DOCSIS:
+                    return new String[] { ConnectionType.WIRED.ToString(), Speed.DOCSIS };
+                case Specification.SATELLITE:
+                    return new String[] { ConnectionType.WIRELESS.ToString(), Speed.SATELLITE };
                 default:
                     return null;
             }
@@ -331,7 +331,7 @@ namespace lab_1
                 if (!localOperator.NameOperator.Equals(textBox3.Text) ||
                     localOperator.PriceOfMonth != decimal.Parse(textBox5.Text) ||
                     localOperator.CntUsers != (int)numericUpDown3.Value ||
-                    localOperator.Connection.Specification != (SPECIFICATIONS)comboBox2.SelectedItem ||
+                    localOperator.Connection.Specification != (Specification)comboBox2.SelectedItem ||
                     localOperator.Connection.Vpn != (bool)comboBox6.SelectedItem)
                 {
                     localOperator.NameOperator = textBox3.Text;
