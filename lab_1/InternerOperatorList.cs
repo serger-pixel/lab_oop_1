@@ -18,27 +18,27 @@ public static class IntOperLstConsts
         public const String SEQUENCESELECT = "Последовательный";
     }
 
-public class InternerOperatorList: IList<InternetOperator>
+public class InternerOperatorList: IList<IInternetOperator>
     {
-        private List<InternetOperator> _localList;
+        private List<IInternetOperator> _localList;
 
         public InternerOperatorList() 
         {
-            _localList = new List<InternetOperator>();
+            _localList = new List<IInternetOperator>();
         }
 
         public int Count => _localList.Count;
 
         public bool IsReadOnly => false;
 
-        public InternetOperator this[int index]
+        public IInternetOperator this[int index]
         {
             get => _localList[index];
             set => _localList[index] = value;
         }
 
 
-        public void Add(InternetOperator item)
+        public void Add(IInternetOperator item)
         {
             _localList.Add(item);
         }
@@ -48,28 +48,28 @@ public class InternerOperatorList: IList<InternetOperator>
             _localList.Clear();
         }
 
-        public bool Contains(InternetOperator item)
+        public bool Contains(IInternetOperator item)
         {
             return _localList.Contains(item);
         }
 
-        public void CopyTo(InternetOperator[] array, int arrayIndex)
+        public void CopyTo(IInternetOperator[] array, int arrayIndex)
         {
             _localList.CopyTo(array, arrayIndex);
         }
 
-        public bool Remove(InternetOperator item)
+        public bool Remove(IInternetOperator item)
         {
             return _localList.Remove(item);
         }
 
-        public int IndexOf(InternetOperator item)
+        public int IndexOf(IInternetOperator item)
         {
             return _localList.IndexOf(item);
         }
 
 
-        public void Insert(int index, InternetOperator item)
+        public void Insert(int index, IInternetOperator item)
         {
             _localList.Insert(index, item);
         }
@@ -79,7 +79,7 @@ public class InternerOperatorList: IList<InternetOperator>
             _localList.RemoveAt(index);
         }
 
-        public IEnumerator<InternetOperator> GetEnumerator()
+        public IEnumerator<IInternetOperator> GetEnumerator()
         {
             return _localList.GetEnumerator();
         }
@@ -91,7 +91,7 @@ public class InternerOperatorList: IList<InternetOperator>
 
         public void del(String nameOperator)
         {
-            InternetOperator localInternetOperator = getByName(nameOperator);
+            IInternetOperator localInternetOperator = getByName(nameOperator);
             _localList.Remove(localInternetOperator);
         }
 
@@ -107,9 +107,9 @@ public class InternerOperatorList: IList<InternetOperator>
             return false;
         }
 
-        public InternetOperator getByName(String nameOperator)
+        public IInternetOperator getByName(String nameOperator)
         {
-            InternetOperator localOperator = null;
+            IInternetOperator localOperator = null;
             for (int i = 0; i < _localList.Count; i++)
             {
                 if (_localList[i].NameOperator.Equals(nameOperator))
@@ -138,7 +138,7 @@ public class InternerOperatorList: IList<InternetOperator>
 
         public int[] test(String select)
         {
-            List<InternetOperator> local = _localList.ToList();
+            List<IInternetOperator> local = _localList.ToList();
             _localList.Clear();
             generateOneHundThous();
             Array array = _localList.ToArray();

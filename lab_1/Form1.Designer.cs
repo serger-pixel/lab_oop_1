@@ -33,6 +33,9 @@
             label3 = new Label();
             textBox1 = new TextBox();
             panel2 = new Panel();
+            discountPanel = new Panel();
+            numericUpDown2 = new NumericUpDown();
+            label16 = new Label();
             pricePanel = new Panel();
             textBox4 = new TextBox();
             label19 = new Label();
@@ -92,6 +95,8 @@
             listView2 = new ListView();
             columnHeader4 = new ColumnHeader();
             panel2.SuspendLayout();
+            discountPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             pricePanel.SuspendLayout();
             usercntPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
@@ -109,23 +114,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(53, 40);
+            label3.Location = new Point(37, 24);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(153, 25);
+            label3.Size = new Size(100, 15);
             label3.TabIndex = 4;
             label3.Text = "Кол-во объектов";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(53, 83);
+            textBox1.Location = new Point(37, 50);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
-            textBox1.Size = new Size(150, 31);
+            textBox1.Size = new Size(106, 23);
             textBox1.TabIndex = 3;
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(discountPanel);
             panel2.Controls.Add(pricePanel);
             panel2.Controls.Add(usercntPanel);
             panel2.Controls.Add(typePanel);
@@ -134,38 +142,66 @@
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(comboBox3);
-            panel2.Location = new Point(41, 178);
+            panel2.Location = new Point(29, 107);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(400, 765);
+            panel2.Size = new Size(280, 493);
             panel2.TabIndex = 9;
             panel2.Paint += panel2_Paint;
+            // 
+            // discountPanel
+            // 
+            discountPanel.BackColor = SystemColors.ButtonFace;
+            discountPanel.Controls.Add(numericUpDown2);
+            discountPanel.Controls.Add(label16);
+            discountPanel.Location = new Point(21, 199);
+            discountPanel.Margin = new Padding(2);
+            discountPanel.Name = "discountPanel";
+            discountPanel.Size = new Size(248, 44);
+            discountPanel.TabIndex = 13;
+            // 
+            // numericUpDown2
+            // 
+            numericUpDown2.Location = new Point(13, 15);
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(120, 23);
+            numericUpDown2.TabIndex = 3;
+            numericUpDown2.Visible = false;
+            // 
+            // label16
+            // 
+            label16.Location = new Point(139, 17);
+            label16.Name = "label16";
+            label16.Size = new Size(99, 20);
+            label16.TabIndex = 12;
+            label16.Text = "Скидка";
+            label16.Visible = false;
             // 
             // pricePanel
             // 
             pricePanel.BackColor = SystemColors.ButtonFace;
             pricePanel.Controls.Add(textBox4);
             pricePanel.Controls.Add(label19);
-            pricePanel.Location = new Point(29, 253);
+            pricePanel.Location = new Point(20, 152);
+            pricePanel.Margin = new Padding(2);
             pricePanel.Name = "pricePanel";
-            pricePanel.Size = new Size(354, 57);
+            pricePanel.Size = new Size(248, 34);
             pricePanel.TabIndex = 10;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(20, 13);
-            textBox4.Margin = new Padding(4, 5, 4, 5);
+            textBox4.Location = new Point(14, 8);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(141, 31);
+            textBox4.Size = new Size(100, 23);
             textBox4.TabIndex = 5;
             textBox4.Visible = false;
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(190, 13);
-            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Location = new Point(133, 8);
             label19.Name = "label19";
-            label19.Size = new Size(130, 25);
+            label19.Size = new Size(86, 15);
             label19.TabIndex = 10;
             label19.Text = "Цена за месяц";
             label19.Visible = false;
@@ -175,26 +211,25 @@
             usercntPanel.BackColor = SystemColors.ButtonFace;
             usercntPanel.Controls.Add(numericUpDown1);
             usercntPanel.Controls.Add(label14);
-            usercntPanel.Location = new Point(30, 328);
+            usercntPanel.Location = new Point(21, 254);
+            usercntPanel.Margin = new Padding(2);
             usercntPanel.Name = "usercntPanel";
-            usercntPanel.Size = new Size(354, 73);
+            usercntPanel.Size = new Size(248, 44);
             usercntPanel.TabIndex = 10;
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(19, 25);
-            numericUpDown1.Margin = new Padding(4, 5, 4, 5);
+            numericUpDown1.Location = new Point(13, 15);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(171, 31);
+            numericUpDown1.Size = new Size(120, 23);
             numericUpDown1.TabIndex = 3;
             numericUpDown1.Visible = false;
             // 
             // label14
             // 
-            label14.Location = new Point(193, 12);
-            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Location = new Point(135, 7);
             label14.Name = "label14";
-            label14.Size = new Size(141, 52);
+            label14.Size = new Size(99, 31);
             label14.TabIndex = 12;
             label14.Text = "Кол-во пользователей";
             label14.Visible = false;
@@ -210,83 +245,84 @@
             typePanel.Controls.Add(label5);
             typePanel.Controls.Add(label13);
             typePanel.Controls.Add(label15);
-            typePanel.Location = new Point(28, 424);
+            typePanel.Location = new Point(21, 303);
+            typePanel.Margin = new Padding(2);
             typePanel.Name = "typePanel";
-            typePanel.Size = new Size(355, 258);
+            typePanel.Size = new Size(248, 155);
             typePanel.TabIndex = 10;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(229, 9);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(160, 5);
             label1.Name = "label1";
-            label1.Size = new Size(43, 25);
+            label1.Size = new Size(28, 15);
             label1.TabIndex = 10;
             label1.Text = "Vpn";
             label1.Click += label2_Click;
             // 
             // textBox9
             // 
-            textBox9.Location = new Point(11, 106);
+            textBox9.Location = new Point(8, 64);
+            textBox9.Margin = new Padding(2);
             textBox9.Name = "textBox9";
             textBox9.ReadOnly = true;
-            textBox9.Size = new Size(150, 31);
+            textBox9.Size = new Size(106, 23);
             textBox9.TabIndex = 11;
             // 
             // comboBox4
             // 
             comboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(191, 47);
+            comboBox4.Location = new Point(134, 28);
+            comboBox4.Margin = new Padding(2);
             comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(153, 33);
+            comboBox4.Size = new Size(108, 23);
             comboBox4.TabIndex = 1;
             // 
             // comboBox1
             // 
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(8, 47);
+            comboBox1.Location = new Point(6, 28);
+            comboBox1.Margin = new Padding(2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(153, 33);
+            comboBox1.Size = new Size(108, 23);
             comboBox1.TabIndex = 1;
             // 
             // textBox10
             // 
-            textBox10.Location = new Point(14, 153);
+            textBox10.Location = new Point(10, 92);
+            textBox10.Margin = new Padding(2);
             textBox10.Name = "textBox10";
             textBox10.ReadOnly = true;
-            textBox10.Size = new Size(150, 31);
+            textBox10.Size = new Size(106, 23);
             textBox10.TabIndex = 11;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(14, 9);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(10, 5);
             label5.Name = "label5";
-            label5.Size = new Size(133, 25);
+            label5.Size = new Size(90, 15);
             label5.TabIndex = 10;
             label5.Text = "Спецификация";
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(182, 153);
-            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Location = new Point(127, 92);
             label13.Name = "label13";
-            label13.Size = new Size(89, 25);
+            label13.Size = new Size(59, 15);
             label13.TabIndex = 10;
             label13.Text = "Скорость";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(182, 109);
-            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Location = new Point(127, 65);
             label15.Name = "label15";
-            label15.Size = new Size(158, 25);
+            label15.Size = new Size(106, 15);
             label15.TabIndex = 10;
             label15.Text = "Тип подключения";
             // 
@@ -295,36 +331,36 @@
             namePanel.BackColor = SystemColors.ButtonFace;
             namePanel.Controls.Add(textBox2);
             namePanel.Controls.Add(label9);
-            namePanel.Location = new Point(30, 182);
+            namePanel.Location = new Point(21, 109);
+            namePanel.Margin = new Padding(2);
             namePanel.Name = "namePanel";
-            namePanel.Size = new Size(354, 57);
+            namePanel.Size = new Size(248, 34);
             namePanel.TabIndex = 10;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(20, 8);
-            textBox2.Margin = new Padding(4, 5, 4, 5);
+            textBox2.Location = new Point(14, 5);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(141, 31);
+            textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 5;
             textBox2.Visible = false;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(180, 13);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(126, 8);
             label9.Name = "label9";
-            label9.Size = new Size(140, 25);
+            label9.Size = new Size(92, 15);
             label9.TabIndex = 10;
             label9.Text = "Имя оператора";
             label9.Visible = false;
             // 
             // button2
             // 
-            button2.Location = new Point(139, 702);
+            button2.Location = new Point(97, 462);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
-            button2.Size = new Size(111, 33);
+            button2.Size = new Size(78, 20);
             button2.TabIndex = 2;
             button2.Text = "Создать";
             button2.UseVisualStyleBackColor = true;
@@ -333,18 +369,20 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(29, 83);
+            label8.Location = new Point(20, 50);
+            label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new Size(296, 25);
+            label8.Size = new Size(196, 15);
             label8.TabIndex = 0;
             label8.Text = "Кол-во параметров конструктора:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(139, 10);
+            label7.Location = new Point(97, 6);
+            label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new Size(161, 25);
+            label7.Size = new Size(106, 15);
             label7.TabIndex = 0;
             label7.Text = "Создание объекта";
             // 
@@ -352,9 +390,10 @@
             // 
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(29, 125);
+            comboBox3.Location = new Point(20, 75);
+            comboBox3.Margin = new Padding(2);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(183, 33);
+            comboBox3.Size = new Size(129, 23);
             comboBox3.TabIndex = 1;
             comboBox3.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
             // 
@@ -370,16 +409,18 @@
             panel3.Controls.Add(comboBox5);
             panel3.Controls.Add(label11);
             panel3.Controls.Add(panel5);
-            panel3.Location = new Point(546, 178);
+            panel3.Location = new Point(382, 107);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(389, 765);
+            panel3.Size = new Size(272, 493);
             panel3.TabIndex = 9;
             // 
             // button1
             // 
-            button1.Location = new Point(206, 702);
+            button1.Location = new Point(144, 462);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
-            button1.Size = new Size(111, 33);
+            button1.Size = new Size(78, 20);
             button1.TabIndex = 11;
             button1.Text = "Удалить";
             button1.UseVisualStyleBackColor = true;
@@ -390,26 +431,25 @@
             panel9.BackColor = SystemColors.ButtonFace;
             panel9.Controls.Add(textBox5);
             panel9.Controls.Add(label23);
-            panel9.Location = new Point(11, 253);
+            panel9.Location = new Point(8, 152);
+            panel9.Margin = new Padding(2);
             panel9.Name = "panel9";
-            panel9.Size = new Size(354, 57);
+            panel9.Size = new Size(248, 34);
             panel9.TabIndex = 10;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(20, 13);
-            textBox5.Margin = new Padding(4, 5, 4, 5);
+            textBox5.Location = new Point(14, 8);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(141, 31);
+            textBox5.Size = new Size(100, 23);
             textBox5.TabIndex = 5;
             // 
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(190, 13);
-            label23.Margin = new Padding(4, 0, 4, 0);
+            label23.Location = new Point(133, 8);
             label23.Name = "label23";
-            label23.Size = new Size(130, 25);
+            label23.Size = new Size(86, 15);
             label23.TabIndex = 10;
             label23.Text = "Цена за месяц";
             // 
@@ -424,18 +464,18 @@
             panel6.Controls.Add(label12);
             panel6.Controls.Add(label6);
             panel6.Controls.Add(label4);
-            panel6.Location = new Point(13, 424);
+            panel6.Location = new Point(8, 261);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(355, 258);
+            panel6.Size = new Size(248, 155);
             panel6.TabIndex = 10;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(240, 9);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(168, 5);
             label2.Name = "label2";
-            label2.Size = new Size(43, 25);
+            label2.Size = new Size(28, 15);
             label2.TabIndex = 10;
             label2.Text = "Vpn";
             label2.Click += label2_Click;
@@ -444,110 +484,111 @@
             // 
             comboBox6.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(188, 47);
+            comboBox6.Location = new Point(132, 28);
+            comboBox6.Margin = new Padding(2);
             comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(153, 33);
+            comboBox6.Size = new Size(108, 23);
             comboBox6.TabIndex = 1;
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(11, 106);
+            textBox7.Location = new Point(8, 64);
+            textBox7.Margin = new Padding(2);
             textBox7.Name = "textBox7";
             textBox7.ReadOnly = true;
-            textBox7.Size = new Size(150, 31);
+            textBox7.Size = new Size(106, 23);
             textBox7.TabIndex = 11;
             // 
             // comboBox2
             // 
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(11, 47);
+            comboBox2.Location = new Point(8, 28);
+            comboBox2.Margin = new Padding(2);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(153, 33);
+            comboBox2.Size = new Size(108, 23);
             comboBox2.TabIndex = 1;
             comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged_1;
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(14, 153);
+            textBox8.Location = new Point(10, 92);
+            textBox8.Margin = new Padding(2);
             textBox8.Name = "textBox8";
             textBox8.ReadOnly = true;
-            textBox8.Size = new Size(150, 31);
+            textBox8.Size = new Size(106, 23);
             textBox8.TabIndex = 11;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(26, 9);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(18, 5);
             label12.Name = "label12";
-            label12.Size = new Size(133, 25);
+            label12.Size = new Size(90, 15);
             label12.TabIndex = 10;
             label12.Text = "Спецификация";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(182, 153);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(127, 92);
             label6.Name = "label6";
-            label6.Size = new Size(89, 25);
+            label6.Size = new Size(59, 15);
             label6.TabIndex = 10;
             label6.Text = "Скорость";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(182, 109);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(127, 65);
             label4.Name = "label4";
-            label4.Size = new Size(158, 25);
+            label4.Size = new Size(106, 15);
             label4.TabIndex = 10;
             label4.Text = "Тип подключения";
             // 
             // button3
             // 
-            button3.Location = new Point(33, 702);
+            button3.Location = new Point(19, 462);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
-            button3.Size = new Size(111, 33);
+            button3.Size = new Size(78, 20);
             button3.TabIndex = 2;
             button3.Text = "Изменить";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // panel8
             // 
             panel8.BackColor = SystemColors.ButtonFace;
             panel8.Controls.Add(numericUpDown3);
             panel8.Controls.Add(label22);
-            panel8.Location = new Point(13, 328);
+            panel8.Location = new Point(8, 199);
+            panel8.Margin = new Padding(2);
             panel8.Name = "panel8";
-            panel8.Size = new Size(354, 73);
+            panel8.Size = new Size(248, 44);
             panel8.TabIndex = 10;
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(19, 25);
-            numericUpDown3.Margin = new Padding(4, 5, 4, 5);
+            numericUpDown3.Location = new Point(13, 15);
             numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(171, 31);
+            numericUpDown3.Size = new Size(120, 23);
             numericUpDown3.TabIndex = 3;
             // 
             // label22
             // 
-            label22.Location = new Point(193, 12);
-            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Location = new Point(135, 7);
             label22.Name = "label22";
-            label22.Size = new Size(141, 52);
+            label22.Size = new Size(99, 31);
             label22.TabIndex = 12;
             label22.Text = "Кол-во пользователей";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(96, 10);
+            label10.Location = new Point(67, 6);
+            label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
-            label10.Size = new Size(217, 25);
+            label10.Size = new Size(143, 15);
             label10.TabIndex = 0;
             label10.Text = "Редактирование объекта";
             // 
@@ -555,17 +596,19 @@
             // 
             comboBox5.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(13, 125);
+            comboBox5.Location = new Point(9, 75);
+            comboBox5.Margin = new Padding(2);
             comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(183, 33);
+            comboBox5.Size = new Size(129, 23);
             comboBox5.TabIndex = 1;
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(13, 83);
+            label11.Location = new Point(9, 50);
+            label11.Margin = new Padding(2, 0, 2, 0);
             label11.Name = "label11";
-            label11.Size = new Size(138, 25);
+            label11.Size = new Size(91, 15);
             label11.TabIndex = 2;
             label11.Text = "Выбор объекта";
             // 
@@ -574,26 +617,25 @@
             panel5.BackColor = SystemColors.ButtonFace;
             panel5.Controls.Add(textBox3);
             panel5.Controls.Add(label17);
-            panel5.Location = new Point(13, 182);
+            panel5.Location = new Point(9, 109);
+            panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(354, 57);
+            panel5.Size = new Size(248, 34);
             panel5.TabIndex = 10;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(20, 8);
-            textBox3.Margin = new Padding(4, 5, 4, 5);
+            textBox3.Location = new Point(14, 5);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(141, 31);
+            textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 5;
             // 
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(180, 13);
-            label17.Margin = new Padding(4, 0, 4, 0);
+            label17.Location = new Point(126, 8);
             label17.Name = "label17";
-            label17.Size = new Size(140, 25);
+            label17.Size = new Size(92, 15);
             label17.TabIndex = 10;
             label17.Text = "Имя оператора";
             // 
@@ -607,9 +649,10 @@
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader5 });
             listView1.Items.AddRange(new ListViewItem[] { listViewItem1, listViewItem2 });
-            listView1.Location = new Point(983, 185);
+            listView1.Location = new Point(688, 111);
+            listView1.Margin = new Padding(2);
             listView1.Name = "listView1";
-            listView1.Size = new Size(608, 396);
+            listView1.Size = new Size(427, 239);
             listView1.TabIndex = 10;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
@@ -636,9 +679,10 @@
             // 
             // button4
             // 
-            button4.Location = new Point(1231, 667);
+            button4.Location = new Point(862, 400);
+            button4.Margin = new Padding(2);
             button4.Name = "button4";
-            button4.Size = new Size(134, 33);
+            button4.Size = new Size(94, 20);
             button4.TabIndex = 13;
             button4.Text = "Тестировать";
             button4.UseVisualStyleBackColor = true;
@@ -648,9 +692,10 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Checked = true;
-            radioButton1.Location = new Point(6, 30);
+            radioButton1.Location = new Point(4, 18);
+            radioButton1.Margin = new Padding(2);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(204, 29);
+            radioButton1.Size = new Size(138, 19);
             radioButton1.TabIndex = 14;
             radioButton1.TabStop = true;
             radioButton1.Text = "Случайный порядок";
@@ -659,9 +704,10 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 65);
+            radioButton2.Location = new Point(4, 39);
+            radioButton2.Margin = new Padding(2);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(182, 29);
+            radioButton2.Size = new Size(123, 19);
             radioButton2.TabIndex = 15;
             radioButton2.Text = "Последовательно";
             radioButton2.UseVisualStyleBackColor = true;
@@ -670,9 +716,11 @@
             // 
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Controls.Add(radioButton2);
-            groupBox1.Location = new Point(983, 602);
+            groupBox1.Location = new Point(688, 361);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(241, 103);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(169, 62);
             groupBox1.TabIndex = 16;
             groupBox1.TabStop = false;
             groupBox1.Text = "Тип теста";
@@ -680,10 +728,9 @@
             // listView2
             // 
             listView2.Columns.AddRange(new ColumnHeader[] { columnHeader4 });
-            listView2.Location = new Point(989, 713);
-            listView2.Margin = new Padding(4, 5, 4, 5);
+            listView2.Location = new Point(692, 428);
             listView2.Name = "listView2";
-            listView2.Size = new Size(159, 219);
+            listView2.Size = new Size(112, 133);
             listView2.TabIndex = 17;
             listView2.UseCompatibleStateImageBehavior = false;
             listView2.View = View.Details;
@@ -695,9 +742,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1645, 1136);
+            ClientSize = new Size(959, 600);
             Controls.Add(listView2);
             Controls.Add(groupBox1);
             Controls.Add(button4);
@@ -706,10 +753,13 @@
             Controls.Add(panel2);
             Controls.Add(label3);
             Controls.Add(textBox1);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "Лабораторная работа № 3. Порождающие паттерны. Ермаков, Петровский. Вар - 10";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            discountPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
             pricePanel.ResumeLayout(false);
             pricePanel.PerformLayout();
             usercntPanel.ResumeLayout(false);
@@ -797,5 +847,8 @@
         private ComboBox comboBox4;
         private ComboBox comboBox6;
         private Label label1;
+        private Panel discountPanel;
+        private NumericUpDown numericUpDown2;
+        private Label label16;
     }
 }

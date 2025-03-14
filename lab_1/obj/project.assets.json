@@ -8,19 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\ermak\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\lab_1.csproj",
+      "projectUniqueName": "E:\\C# labs\\Lab_4\\lab_oop_1\\lab_1\\lab_1.csproj",
       "projectName": "lab_1",
-      "projectPath": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\lab_1.csproj",
-      "packagesPath": "C:\\Users\\ermak\\.nuget\\packages\\",
-      "outputPath": "D:\\univer\\oop\\labs\\lab_1\\lab_oop_1\\lab_1\\obj\\",
+      "projectPath": "E:\\C# labs\\Lab_4\\lab_oop_1\\lab_1\\lab_1.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\C# labs\\Lab_4\\lab_oop_1\\lab_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ermak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -45,7 +45,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -69,7 +70,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

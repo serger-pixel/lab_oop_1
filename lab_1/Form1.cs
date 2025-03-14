@@ -23,7 +23,7 @@ namespace lab_1
 
         private Dictionary<String, bool> _boolDict;
 
-        private delegate void OnListChange(String mess, InternetOperator local);
+        private delegate void OnListChange(String mess, IInternetOperator local);
 
         private delegate void UpdateTable();
 
@@ -98,6 +98,8 @@ namespace lab_1
                 [FormsConstans.VALUE4] = typePanel
             };
             comboBox5.SelectedIndexChanged += comboBox5_SelectedIndexChanged;
+
+            button3.Click += changeObject;
 
             _onUpdateTable = displayOperators;
 
@@ -178,7 +180,7 @@ namespace lab_1
             }
         }
 
-        private InternetOperator chooseConstructor(int cntParams)
+        private IInternetOperator chooseConstructor(int cntParams)
         {
             switch (cntParams)
             {
@@ -187,21 +189,21 @@ namespace lab_1
                 case FormsConstans.VALUE1:
                     return new InternetOperator(textBox2.Text);
                 case FormsConstans.VALUE2:
-                    return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text));
+                    return new DiscountDecorator(new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text)), numericUpDown2.Value);
                 case FormsConstans.VALUE3:
-                    return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value);
+                    return new DiscountDecorator(new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
+                        (int)numericUpDown1.Value), numericUpDown2.Value);
                 case FormsConstans.VALUE4:
                     IFabric fabric = chooseFabric(Convert.ToBoolean(comboBox4.SelectedItem));
                     Connection connetction = chooseObj(comboBox1, fabric);
-                    return new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
-                        (int)numericUpDown1.Value, connetction);
+                    return new DiscountDecorator(new InternetOperator(textBox2.Text, decimal.Parse(textBox4.Text),
+                        (int)numericUpDown1.Value, connetction), numericUpDown2.Value);
                 default:
                     return null;
             }
         }
 
-        private InternetOperator createOperator(int cntParams)
+        private IInternetOperator createOperator(int cntParams)
         {
             checkValues(cntParams);
             return chooseConstructor(cntParams);
@@ -270,6 +272,12 @@ namespace lab_1
             {
                 if (value >= i)
                 {
+                    if (i >= FormsConstans.VALUE2) 
+                    {
+                        discountPanel.Visible = true;
+                        discountPanel.Controls[0].Visible = true;
+                        discountPanel.Controls[1].Visible = true;
+                    }
                     _panelDict[i].Visible = true;
                     _panelDict[i].Controls[0].Visible = true;
                     _panelDict[i].Controls[1].Visible = true;
@@ -288,6 +296,7 @@ namespace lab_1
             {
                 pair.Value.Visible = false;
             }
+            discountPanel.Visible = false;
         }
 
         private void clearInput(TextBox textBox1, TextBox textBox2, TextBox textBox3, TextBox textBox4,
@@ -302,12 +311,13 @@ namespace lab_1
             comboBox2.SelectedIndex = -1;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        
+        private void changeObject(object sender, EventArgs e)
         {
             try
             {
                 if (comboBox5.SelectedIndex == -1) { throw new ObjWasntChosen(); }
-                InternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
+                IInternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
                 Regex regex = new Regex(Regs._nameReg);
                 if (!regex.Match(textBox3.Text).Success)
                 {
@@ -356,7 +366,7 @@ namespace lab_1
         {
             try
             {
-                InternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
+                IInternetOperator localOperator = createOperator(int.Parse(comboBox3.SelectedItem.ToString()));
                 _localList.Add(localOperator);
                 comboBox5.Items.Add(localOperator.NameOperator);
                 InternetOperator.cntObj++;
@@ -379,7 +389,7 @@ namespace lab_1
         {
             if (comboBox5.SelectedIndex != -1)
             {
-                InternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
+                IInternetOperator localOperator = _localList.getByName(comboBox5.SelectedItem.ToString());
                 textBox3.Text = localOperator.NameOperator;
                 textBox5.Text = localOperator.PriceOfMonth.ToString();
                 numericUpDown3.Value = localOperator.CntUsers;
@@ -401,7 +411,7 @@ namespace lab_1
             {
                 if (textBox3.Text != "")
                 {
-                    InternetOperator localOperator = _localList.getByName(textBox3.Text);
+                    IInternetOperator localOperator = _localList.getByName(textBox3.Text);
                     _localList.del(textBox3.Text);
                     InternetOperator.cntObj--;
                     textBox1.Text = InternetOperator.cntObj.ToString();
@@ -463,17 +473,17 @@ namespace lab_1
             }
         }
 
-        private void edit(String mess, InternetOperator local)
+        private void edit(String mess, IInternetOperator local)
         {
             MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
         }
 
-        private void add(String mess, InternetOperator local)
+        private void add(String mess, IInternetOperator local)
         {
             MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
         }
 
-        private void delete(String mess, InternetOperator local)
+        private void delete(String mess, IInternetOperator local)
         {
             MessageBox(this.Handle, mess + local.NameOperator, IntOperConsts.TITLE, 0);
         }
